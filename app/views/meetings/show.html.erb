@@ -1,0 +1,6 @@
+<h1><%= @meeting.location %></h1>
+<h5> <%= @meeting.date %></h5>
+
+<% @meeting.users.each do |user| %>
+  <%= user.email %>
+<% end %>
