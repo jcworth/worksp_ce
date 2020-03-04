@@ -9,7 +9,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
-    @attendee = Attendee.new
+    # @attendee = Attendee.new
   end
 
   def create
@@ -25,13 +25,16 @@ class MeetingsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    @meeting.update(validate_meeting)
+    redirect_to meeting_path(@meeting)
   end
 
   def destroy
+    @meeting.destroy
+    redirect_to meetings_path
   end
 
   private

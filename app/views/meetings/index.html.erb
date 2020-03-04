@@ -1,6 +1,6 @@
 <h1>All meetings</h1>
 
 <% @meetings.each do |meeting| %>
-  <%= meeting.location %>
-  <%= meeting.date %>
+  <li><%= link_to "Location: #{meeting.location}", meeting_path(meeting)%>
+  <p>Date: <%= meeting.date %></p></li>
 <% end %>
