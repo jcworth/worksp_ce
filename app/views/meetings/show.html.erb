@@ -1,0 +1,9 @@
+<h1><%= @meeting.location %></h1>
+<h5> <%= @meeting.date %></h5>
+
+<% @meeting.users.each do |user| %>
+  <%= user.email %>
+<% end %>
+
+<%= link_to "Edit this meeting", edit_meeting_path(@meeting) %>
+<%= link_to "Delete this meeting", meeting_path, method: :delete %>
