@@ -1,7 +1,9 @@
 <h1>new</h1>
 
-<%= simple_form_for @meeting do |f| %>
-  <%= f.input :date %>
-  <%= f.input :location %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @meeting do |f| %>
+    <%= f.input :date %>
+    <%= f.input :location %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
