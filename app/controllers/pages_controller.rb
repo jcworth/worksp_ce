@@ -6,7 +6,8 @@ class PagesController < ApplicationController
     @markers = @meetings.map do |meeting|
       {
         lat: meeting.latitude,
-        long: meeting.longitude
+        long: meeting.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { meeting: meeting })
       }
     end
   end
