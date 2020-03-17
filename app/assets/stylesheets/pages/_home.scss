@@ -1,1 +1,28 @@
-// Specific CSS for your home-page
+.home-main {
+  // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(247,247,247,1) 0%, rgba(159,235,250,1) 74%, rgba(0,212,255,1) 100%);
+  min-height: 100vh;
+  display: flex;
+}
+
+.home-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.home-cta {
+  border: 1px solid black;
+  flex-shrink: 0;
+  width: 40%;
+}
+
+.map {
+  border: 1px solid black;
+  height: 50%;
+  width: 40%;
+  background-image: url('https://geology.com/world/africa-map.gif');
+  object-fit: contain;
+}
