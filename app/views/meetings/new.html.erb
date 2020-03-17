@@ -1,9 +1,9 @@
 <div class="new-meeting-main">
   <div class="new-meeting-form">
     <%= simple_form_for @meeting do |f| %>
-      <%#= f.input :description %>
+      <%= f.input :description, label: "What are you working on?" %>
       <%= f.input :date, as: :datetime %>
-      <%= f.input :location %>
+      <%= f.input :location, :input_html => { id: 'meeting-address' } %>
       <%= f.button :submit %>
     <% end %>
   </div>
