@@ -1,9 +1,16 @@
-<h1>new</h1>
-
-<div class="container">
-  <%= simple_form_for @meeting do |f| %>
-    <%= f.input :date %>
-    <%= f.input :location %>
-    <%= f.button :submit %>
-  <% end %>
+<div class="new-meeting-main">
+  <div class="new-meeting-form">
+    <%= simple_form_for @meeting do |f| %>
+      <%#= f.input :description %>
+      <%= f.input :date, as: :datetime %>
+      <%= f.input :location %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+  <div id="map"
+       style="width: 40%;
+       height: 600px;"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+  </div>
 </div>
+
