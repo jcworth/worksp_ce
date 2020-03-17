@@ -29,5 +29,40 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
 
-initAutocomplete()
+
+const results = document.getElementById('results');
+results.innertHTML = "";
+// display results
+const insertResults = (data) => {
+  data.features.forEach((location) => {
+    const result = `<li>${location.place_name}</li>`
+    results.insertAdjacentHTML('beforeend', result);
+  });
+};
+
+
+// function to query mapbox places API with the location
+const sendRequest = (query) => {
+  const mapboxUrl = (`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA`);
+  fetch(mapboxUrl)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
+      insertResults(data);
+  });
+};
+
+// grab input from location input
+const input = document.getElementById('meeting-address')
+const searchLocation = document.getElementById('search-location')
+searchLocation.addEventListener('click', (event) => {
+  // event.preventDefault();
+  sendRequest(input.value);
+  console.log(input.value);
+});
+
+
+// show autocomplete to fix location
+// take final location and show on map
+// save location
 
