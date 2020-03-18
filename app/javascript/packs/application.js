@@ -30,11 +30,12 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
+// display results
 const results = document.getElementById('results');
 results.innertHTML = "";
-// display results
 const insertResults = (data) => {
   data.features.forEach((location) => {
+    // results.innerHTML = "";
     const result = `<li>${location.place_name}</li>`
     results.insertAdjacentHTML('beforeend', result);
   });
