@@ -8,4 +8,18 @@
 
 .new-meeting-form {
   width: 25%;
+  box-shadow: 1px 1px 5px lightgrey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.results-list {
+  background: white;
+  // border: 1px solid black;
+  list-style: none;
+  padding: 0;
+
+  // li {
+  //   list-style: none;
+  // }
 }

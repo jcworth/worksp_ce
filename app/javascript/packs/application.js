@@ -36,7 +36,7 @@ results.innertHTML = "";
 const insertResults = (data) => {
   data.features.forEach((location) => {
     // results.innerHTML = "";
-    const result = `<li>${location.place_name}</li>`
+    const result = `<li>${location.text}, ${location.properties['address']}</li>`
     results.insertAdjacentHTML('beforeend', result);
   });
 };
@@ -44,7 +44,7 @@ const insertResults = (data) => {
 
 // function to query mapbox places API with the location
 const sendRequest = (query) => {
-  const mapboxUrl = (`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA`);
+  const mapboxUrl = (`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?limit=3&access_token=pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA`);
   fetch(mapboxUrl)
     .then(response => response.json())
     .then((data) => {
@@ -58,6 +58,7 @@ const input = document.getElementById('meeting-address')
 const searchLocation = document.getElementById('search-location')
 searchLocation.addEventListener('click', (event) => {
   // event.preventDefault();
+  results.innerHTML = "";
   sendRequest(input.value);
   console.log(input.value);
 });
