@@ -30,13 +30,21 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
+// mapboxgl.accessToken = 'pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA';
+// var map = new mapboxgl.Map({
+//   container: 'map', // Container ID
+//   style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+//   center: [-122.25948, 37.87221], // Starting position [lng, lat]
+//   zoom: 12, // Starting zoom level
+// });
+
 // display results
 const results = document.getElementById('results');
 results.innertHTML = "";
 const insertResults = (data) => {
   data.features.forEach((location) => {
     // results.innerHTML = "";
-    const result = `<li>${location.text}, ${location.properties['address']}</li>`
+    const result = `<li>${location.properties.name}, ${location.properties.street}, ${location.properties.city}</li>`
     results.insertAdjacentHTML('beforeend', result);
   });
 };
@@ -44,8 +52,8 @@ const insertResults = (data) => {
 
 // function to query mapbox places API with the location
 const sendRequest = (query) => {
-  const mapboxUrl = (`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?limit=3&access_token=pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA`);
-  fetch(mapboxUrl)
+  const photonUrl = (`http://photon.komoot.de/api/?q=${query}&limit=3`);
+  fetch(photonUrl)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
@@ -56,8 +64,8 @@ const sendRequest = (query) => {
 // grab input from location input
 const input = document.getElementById('meeting-address')
 const searchLocation = document.getElementById('search-location')
-searchLocation.addEventListener('click', (event) => {
-  // event.preventDefault();
+input.addEventListener('keyup', (event) => {
+  event.preventDefault();
   results.innerHTML = "";
   sendRequest(input.value);
   console.log(input.value);
