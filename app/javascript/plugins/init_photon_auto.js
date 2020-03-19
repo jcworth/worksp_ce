@@ -30,7 +30,7 @@ const initPhotonAuto = () => {
 
   // grab input from location input
   const input = document.getElementById('meeting-address')
-  const searchLocation = document.getElementById('search-location')
+  // const searchLocation = document.getElementById('search-location')
   input.addEventListener('keyup', (event) => {
     // event.preventDefault();
     results.innerHTML = "";

@@ -3,19 +3,19 @@
     <%= simple_form_for @meeting do |f| %>
       <%= f.input :description, label: "What are you working on?" %>
       <%= f.input :date, as: :datetime %>
-      <%= f.input :location %>
+      <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
+      <ul class="results-list" id="results">
+      </ul>
       <%= f.button :submit  %>
     <% end %>
-    <input type="text" id="meeting-address">
-    <input type="submit" id="search-location">
+    <!-- <input type="text" id="meeting-address"> -->
+    <!-- <input type="submit" id="search-location"> -->
 
-    <ul class="results-list" id="results">
-    </ul>
   </div>
-  <div id="map"
+<!--   <div id="map"
        style="width: 40%;
        height: 600px;"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-  </div>
+       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY']%>">
+  </div> -->
 </div>
 

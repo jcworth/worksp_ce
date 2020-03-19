@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
 
-// initPhotonAuto()
+initPhotonAuto()
 
 // mapboxgl.accessToken = 'pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA';
 // const map = new mapboxgl.Map({
