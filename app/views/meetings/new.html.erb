@@ -1,9 +1,22 @@
-<h1>new</h1>
+<div class="new-meeting-main">
+  <div class="new-meeting-form">
+    <%= simple_form_for @meeting do |f| %>
+      <%= f.input :description, label: "What are you working on?" %>
+      <%= f.input :date, as: :datetime %>
+      <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
+      <ul class="results-list" id="results">
+        <li id="list-item"></li>
+      </ul>
+      <%= f.button :submit  %>
+    <% end %>
+    <!-- <input type="text" id="meeting-address"> -->
+    <!-- <input type="submit" id="search-location"> -->
 
-<div class="container">
-  <%= simple_form_for @meeting do |f| %>
-    <%= f.input :date %>
-    <%= f.input :location %>
-    <%= f.button :submit %>
-  <% end %>
+  </div>
+<!--   <div id="map"
+       style="width: 40%;
+       height: 600px;"
+       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY']%>">
+  </div> -->
 </div>
+

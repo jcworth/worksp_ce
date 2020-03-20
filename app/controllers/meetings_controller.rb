@@ -19,6 +19,7 @@ class MeetingsController < ApplicationController
     @attendee.user = current_user
     @attendee.save
     if @meeting.save
+      flash[:success] = "Meeting created!"
       redirect_to meetings_path
     else
       render :new
@@ -44,6 +45,6 @@ class MeetingsController < ApplicationController
   end
 
   def validate_meeting
-    params.require(:meeting).permit(:date, :location)
+    params.require(:meeting).permit(:description, :date, :location)
   end
 end
