@@ -5,6 +5,7 @@
       <%= f.input :date, as: :datetime %>
       <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
       <ul class="results-list" id="results">
+        <li id="list-item"></li>
       </ul>
       <%= f.button :submit  %>
     <% end %>

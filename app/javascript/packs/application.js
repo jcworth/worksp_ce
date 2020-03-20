@@ -32,6 +32,13 @@ document.addEventListener('turbolinks:load', () => {
 
 initPhotonAuto()
 
+const inputArea = document.getElementById('meeting-address');
+const listItem = document.getElementById('list-item');
+
+listItem.addEventListener('click', (event) => {
+  inputArea.value = event.currentTarget.innerText;
+});
+
 // mapboxgl.accessToken = 'pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA';
 // const map = new mapboxgl.Map({
 //   container: 'map', // Container ID

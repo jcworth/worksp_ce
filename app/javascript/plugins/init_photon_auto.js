@@ -12,7 +12,8 @@ const initPhotonAuto = () => {
   const insertResults = (data) => {
     data.features.forEach((location) => {
       // results.innerHTML = "";
-      const result = `<li>${location.properties.name}, ${location.properties.street}, ${location.properties.city}</li>`
+      // results.classList.toggle('list-on')
+      const result = `<li id="list-item">${location.properties.name}, ${location.properties.country}</li>`
       results.insertAdjacentHTML('beforeend', result);
     });
   };
