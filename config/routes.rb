@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :meetings
   resources :groups
 
+  get '/users/:username', to: "users#show", as: :user
+
 end
