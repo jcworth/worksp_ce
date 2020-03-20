@@ -1,9 +1,28 @@
-<h1><%= @meeting.location %></h1>
-<h5> <%= @meeting.date %></h5>
 
-<% @meeting.users.each do |user| %>
-  <%= user.email %>
-<% end %>
 
-<%= link_to "Edit this meeting", edit_meeting_path(@meeting) %>
-<%= link_to "Delete this meeting", meeting_path, method: :delete %>
+<%# @meeting.users.each do |user| %>
+  <%#= user.email %>
+<%# end %>
+
+
+
+<div class="meeting-container">
+  <div class="meeting-info">
+    <p><%= @meeting.location %></p>
+    <p> <%= @meeting.date %></p>
+    <p>more info</p>
+    <p>more info</p>
+    <p>more info</p>
+    <%= link_to "Edit this meeting", edit_meeting_path(@meeting) %>
+    <%= link_to "Delete this meeting", meeting_path, method: :delete %>
+  </div>
+  <div class="host-details">
+    <h3>also hi</h3>
+  </div>
+  <div id="map">
+
+  </div>
+  <div class="meeting-actions">
+    <h5>placeholder</h5>
+  </div>
+</div>
