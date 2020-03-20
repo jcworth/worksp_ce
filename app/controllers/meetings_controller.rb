@@ -17,7 +17,8 @@ class MeetingsController < ApplicationController
     @attendee = Attendee.new
     @attendee.meeting = @meeting
     @attendee.user = current_user
-    @attendee.save
+    @attendee.host = true
+    @attendee.save!
     if @meeting.save
       flash[:success] = "Meeting created!"
       redirect_to meetings_path

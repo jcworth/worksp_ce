@@ -8,7 +8,7 @@
 const initPhotonAuto = () => {
   // display results
   const results = document.getElementById('results');
-  results.innertHTML = "";
+  results.innerHTML = "";
   const insertResults = (data) => {
     data.features.forEach((location) => {
       // results.innerHTML = "";
