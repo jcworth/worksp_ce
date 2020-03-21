@@ -3,9 +3,9 @@
 <%# end %>
 
 <div class="meeting-container">
+  <h1><%= @meeting.title %></h1>
   <div class="top-info">
     <div class="meeting-info">
-      <h1><%= @meeting.title %></h1>
       <h5><%= @meeting.location %></h5>
       <p> <%= @meeting.date %></p>
       <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
@@ -23,24 +23,25 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
     </div>
   </div>
+
   <div class="bottom-info">
-    <div class="host-details">
-      <h6>About the organiser:</h6>
-      <!-- <h5>Organised by <%#= @host.first_name %></h5> -->
-      <div class="card">
-        <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="card-image">
-        <div class="card-info">
-          <h6><%= @host.first_name %></h6>
-          <h6><%= @host.profession %></h6>
-          <p><%= @host.bio %></p>
-        </div>
-      </div>
-    </div>
     <div class="meeting-actions">
       <h5>Meeting controls</h5>
       <p>placeholder for join request</p>
       <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %>
       <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
     </div>
-  </div>
+    <div class="host-details">
+      <h6>About the organiser:</h6>
+      <!-- <h5>Organised by <%#= @host.first_name %></h5> -->
+      <div class="user-card">
+        <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="user-card-image">
+        <div class="user-card-info">
+          <h6><%= @host.first_name %></h6>
+          <h6><%= @host.profession %></h6>
+          <p><%= @host.bio %></p>
+        </div>
+      </div>
+    </div>
+</div>
 </div>

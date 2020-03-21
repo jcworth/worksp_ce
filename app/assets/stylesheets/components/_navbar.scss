@@ -9,6 +9,9 @@ nav {
   display: flex;
   justify-content: space-between;
 
+  h5 {
+    align-self: center;
+  }
 }
 
 nav > ul {

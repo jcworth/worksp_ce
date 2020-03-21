@@ -10,59 +10,60 @@
   }
 }
 
-.top-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  box-shadow: 1px 1px 2px lightgrey;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.bottom-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-
-}
-
 .meeting-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 90vh;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  box-shadow: 1px 1px 4px lightgrey;
   padding: 10px;
   border-radius: 4px;
+
+  h1 {
+    width: 80%;
+  }
 }
 
+// .meeting-sections {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   // // align-items: center;
+//   // // height: 90vh;
+//   // // width: 80%;
+//   width: 100%;
+//   margin: 0 auto;
+//   padding: 10px;
+//   // border-radius: 4px;
+// }
+
+.top-info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .meeting-info {
-  // border: 1px solid black;
   width: 40%;
-  height: 300px;
-  padding: 10px;
+  // height: 300px;
+  padding-right: 30px;
+  // align-items: flex-start;
+}
+
+.bottom-info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.meeting-actions {
+  width: 40%;
 }
 
 .host-details {
-  // border: 1px solid black;
   width: 40%;
-  height: 300px;
 
 }
 
-.meeting-actions {
-  width: 40%;
-  // border: 1px solid black;
-  box-shadow: 1px 1px 4px lightgrey;
-  // height: 300px;
-  padding: 10px;
-  border-radius: 4px;
-  align-self: flex-start;
-}
+
+
