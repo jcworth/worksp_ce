@@ -1,3 +1,15 @@
+.meeting-grid {
+  display: grid;
+  width: 80%;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0 auto;
+
+  li {
+    list-style: none;
+  }
+}
+
 .meeting-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,22 +18,28 @@
   height: 100vh;
   width: 80%;
   margin: 0 auto;
+  box-shadow: 1px 1px 4px lightgrey;
+  padding: 10px;
+  border-radius: 4px;
 
 }
 
 .meeting-info {
-  border: 1px solid black;
-  width: 50%;
+  // border: 1px solid black;
+  width: 40%;
   height: 300px;
+  padding: 10px;
 }
 
 .host-details {
   border: 1px solid black;
-  width: 50%;
+  width: 40%;
+  height: 300px;
 
 }
 
 .meeting-actions {
-  width: 50%;
+  width: 40%;
   border: 1px solid black;
+  height: 300px;
 }

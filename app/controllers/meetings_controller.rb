@@ -6,8 +6,8 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    @host_attendance = @meeting.attendees.where(host:'true').reduce
-    @host = @host_attendance.user
+    attendance = @meeting.attendees.where(host:'true').reduce
+    @host = attendance.user
   end
 
   def new

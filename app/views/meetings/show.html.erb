@@ -4,22 +4,29 @@
 
 <div class="meeting-container">
   <div class="meeting-info">
-    <h1><%= @meeting.location %></h1>
+    <h1><%= @meeting.title %></h1>
+    <h5><%= @meeting.location %></h5>
     <p> <%= @meeting.date %></p>
     <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
-    <p>more info</p>
-    <p>more info</p>
+    <p>Placeholder for description<%= @meeting.description %></p>
+    <!-- <img src="#" alt="" class="mini-avatar"> -->
+    <i class="fas fa-user-friends"></i>
+    <i class="fas fa-user-friends"></i>
+    <i class="fas fa-user-friends"></i>
+    <i class="fas fa-user-friends"></i>
   </div>
   <div id="map" style="width: 40%;
-    height: 300px;">
-    <h5>placeholder</h5>
+    height: 300px;"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
   </div>
   <div class="host-details">
-    <h3><%= @host.first_name %></h3>
+    <h5>Organised by <%= @host.first_name %></h5>
+    <p><%=  %></p>
   </div>
   <div class="meeting-actions">
-    <h5>placeholder</h5>
-    <%= link_to "Edit this meeting", edit_meeting_path(@meeting) %>
-    <%= link_to "Delete this meeting", meeting_path, method: :delete %>
+    <h5>Meeting controls</h5>
+    <p>placeholder for join request</p>
+    <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %>
+    <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
   </div>
 </div>
