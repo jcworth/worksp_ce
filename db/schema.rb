@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_03_17_184034) do
+ActiveRecord::Schema.define(version: 2020_03_21_170715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_184034) do
     t.bigint "meeting_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "host", default: false, null: false
     t.index ["meeting_id"], name: "index_attendees_on_meeting_id"
     t.index ["user_id"], name: "index_attendees_on_user_id"
   end
@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(version: 2020_03_17_184034) do
 
   create_table "meetings", force: :cascade do |t|
     t.string "location"
-    t.date "date"
+    t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
     t.text "description"
+    t.bigint "host"
+    t.string "title"
   end
 
   create_table "memberships", force: :cascade do |t|

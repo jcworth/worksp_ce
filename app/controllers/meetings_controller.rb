@@ -5,7 +5,15 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.all
   end
 
-  def show; end
+  def show
+    @marker = [{
+      lat: @meeting.latitude,
+      long: @meeting.longitude
+    }]
+    attendance = @meeting.attendees.where(host:'true').reduce
+    @host = attendance.user
+    # raise
+  end
 
   def new
     @meeting = Meeting.new
@@ -17,7 +25,8 @@ class MeetingsController < ApplicationController
     @attendee = Attendee.new
     @attendee.meeting = @meeting
     @attendee.user = current_user
-    @attendee.save
+    @attendee.host = true
+    @attendee.save!
     if @meeting.save
       flash[:success] = "Meeting created!"
       redirect_to meetings_path
