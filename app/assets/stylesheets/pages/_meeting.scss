@@ -14,15 +14,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 90%;
+  // align-items: center;
+  height: 93.5vh;
+  width: 100%;
   margin: 0 auto;
   padding: 10px;
   border-radius: 4px;
 
   h1 {
-    width: 80%;
+    width: 60%;
+
   }
 }
 
@@ -42,28 +43,32 @@
 .top-info {
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-.meeting-info {
-  width: 40%;
-  // height: 300px;
-  padding-right: 30px;
-  // align-items: flex-start;
+  width: 75%;
+  margin: 0 auto;
+  padding: 10px;
+
+  .meeting-info {
+    width: 40%;
+    // height: 300px;
+    padding-right: 30px;
+    // align-items: flex-start;
+  }
 }
 
 .bottom-info {
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-.meeting-actions {
-  width: 40%;
-}
+  width: 75%;
+  padding: 10px;
 
-.host-details {
-  width: 40%;
+  .meeting-actions {
+    width: 40%;
+  }
+
+  .host-details {
+    width: 40%;
+  }
 
 }
-
 
 

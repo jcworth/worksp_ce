@@ -1,11 +1,11 @@
 .user-card {
   height: 90%;
-  // border: 1px solid black;
+
   border-radius: 5px;
   // box-shadow: 1px 1px 5px lightgrey;
-  width: 50%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   padding: 10px;
 
   .user-card-image {
@@ -17,6 +17,9 @@
 
   .user-card-info {
     // text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     h6 {
       text-align: center;
