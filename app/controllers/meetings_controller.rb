@@ -6,8 +6,13 @@ class MeetingsController < ApplicationController
   end
 
   def show
+    @marker = [{
+      lat: @meeting.latitude,
+      long: @meeting.longitude
+    }]
     attendance = @meeting.attendees.where(host:'true').reduce
     @host = attendance.user
+    # raise
   end
 
   def new
