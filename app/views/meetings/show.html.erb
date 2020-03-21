@@ -4,17 +4,18 @@
 
 <div class="meeting-container">
   <div class="meeting-info">
-    <p><%= @meeting.location %></p>
+    <h1><%= @meeting.location %></h1>
     <p> <%= @meeting.date %></p>
+    <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
     <p>more info</p>
     <p>more info</p>
-    <p>more info</p>
+  </div>
+  <div id="map" style="width: 40%;
+    height: 300px;">
+    <h5>placeholder</h5>
   </div>
   <div class="host-details">
-    <h3>also hi</h3>
-  </div>
-  <div id="map">
-    <h5>placeholder</h5>
+    <h3><%= @host.first_name %></h3>
   </div>
   <div class="meeting-actions">
     <h5>placeholder</h5>

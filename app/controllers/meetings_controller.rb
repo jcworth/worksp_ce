@@ -5,7 +5,10 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.all
   end
 
-  def show; end
+  def show
+    @host_attendance = @meeting.attendees.where(host:'true').reduce
+    @host = @host_attendance.user
+  end
 
   def new
     @meeting = Meeting.new
