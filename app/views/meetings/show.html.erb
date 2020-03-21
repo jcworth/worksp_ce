@@ -3,23 +3,26 @@
 <%# end %>
 
 <div class="meeting-container">
-  <div class="meeting-info">
-    <h1><%= @meeting.title %></h1>
-    <h5><%= @meeting.location %></h5>
-    <p> <%= @meeting.date %></p>
-    <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
-    <p>Placeholder for description<%= @meeting.description %></p>
-    <!-- <img src="#" alt="" class="mini-avatar"> -->
-    <i class="fas fa-user-friends"></i>
-    <i class="fas fa-user-friends"></i>
-    <i class="fas fa-user-friends"></i>
-    <i class="fas fa-user-friends"></i>
-  </div>
-  <div id="map"
-    style="width: 40%;
-    height: 300px;"
-    data-markers="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+
+  <div class="top-info">
+    <div class="meeting-info">
+      <h1><%= @meeting.title %></h1>
+      <h5><%= @meeting.location %></h5>
+      <p> <%= @meeting.date %></p>
+      <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
+      <p>Placeholder for description<%= @meeting.description %></p>
+      <!-- <img src="#" alt="" class="mini-avatar"> -->
+      <i class="fas fa-user-friends"></i>
+      <i class="fas fa-user-friends"></i>
+      <i class="fas fa-user-friends"></i>
+      <i class="fas fa-user-friends"></i>
+    </div>
+    <div id="map"
+      style="width: 40%;
+      height: 300px;"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+    </div>
   </div>
   <div class="host-details">
     <h6>About the organiser:</h6>
