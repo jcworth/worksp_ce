@@ -1,0 +1,7 @@
+<div class="container">
+  <h5>new</h5>
+  <%= simple_form_for [@meeting, @attendee] do |f| %>
+    <%= f.input :message %>
+    <%= f.button :submit, 'Request to join' %>
+  <% end %>
+</div>
