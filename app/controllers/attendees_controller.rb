@@ -1,7 +1,8 @@
 class AttendeesController < ApplicationController
 
   def new
-    @Attendee = Attendee.new
+    @attendee = Attendee.new
+    @meeting = Meeting.find(params[:meeting_id])
   end
 
   def create
