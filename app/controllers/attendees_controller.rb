@@ -1,9 +1,13 @@
 class AttendeesController < ApplicationController
 
   def new
+    @Attendee = Attendee.new
   end
 
   def create
+    @Attendee = Attendee.find(params[:id])
+    @Attendee.user = current_user
+    # @Attendee.meeting = @meeting
   end
 
   def edit
@@ -11,4 +15,8 @@ class AttendeesController < ApplicationController
 
   def update
   end
+
+  private
+
+
 end
