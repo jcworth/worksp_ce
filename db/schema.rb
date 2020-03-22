@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_203128) do
+ActiveRecord::Schema.define(version: 2020_03_22_205237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_203128) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "host", default: false, null: false
     t.boolean "confirmed", default: false, null: false
+    t.text "message"
     t.index ["meeting_id"], name: "index_attendees_on_meeting_id"
     t.index ["user_id"], name: "index_attendees_on_user_id"
   end
