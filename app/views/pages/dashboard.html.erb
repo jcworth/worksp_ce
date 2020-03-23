@@ -12,6 +12,18 @@
     </div>
   </div>
   <div class="dash-info-container">
+    <h5>Hosting</h5>
+    <% @user.meetings.each do |meeting|  %>
+      <p><%= meeting.location %></p>
+    <% end %>
 
+    <h5>Attending</h5>
+    <% @user.attendees.where(host: 'false').each do |attendee| %>
+      <p><%= attendee.meeting.location %></p>
+    <% end %>
+    <h5>Requested to join</h5>
+    <% @user.attendees.where(confirmed: 'false').each do |attendee| %>
+      <p><%= attendee.meeting.location %></p>
+    <% end %>
   </div>
 </div>

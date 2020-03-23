@@ -6,8 +6,9 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    @Attendee = Attendee.find(params[:id])
-    @Attendee.user = current_user
+    @attendee = Attendee.find(params[:id])
+    @attendee.user = current_user
+    @attendee.confirmed = true
     # @Attendee.meeting = @meeting
   end
 
