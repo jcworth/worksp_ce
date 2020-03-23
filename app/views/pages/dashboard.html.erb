@@ -10,6 +10,9 @@
         <p><%= current_user.bio %></p>
       </div>
     </div>
+    <div class="dashboard-actions">
+      <%= link_to 'edit user', edit_user_registration_path %>
+    </div>
   </div>
   <div class="dash-info-container">
     <h5>Hosting</h5>
@@ -22,7 +25,7 @@
       <p><%= attendee.meeting.location %></p>
     <% end %>
     <h5>Requested to join</h5>
-    <% @user.attendees.where(confirmed: 'false').each do |attendee| %>
+    <% @user.attendees.where(confirmed: 'false', host: 'false').each do |attendee| %>
       <p><%= attendee.meeting.location %></p>
     <% end %>
   </div>
