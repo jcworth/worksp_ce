@@ -15,15 +15,26 @@
   flex-wrap: wrap;
   justify-content: center;
   // align-items: center;
-  height: 93.5vh;
+  height: 100%;
   width: 100%;
   margin: 0 auto;
   padding: 10px;
   border-radius: 4px;
 
   h1 {
-    width: 60%;
-    height: 0;
+    // width: 60%;
+    // height: 0;
+
+  }
+
+  .meeting-info {
+    width: 40%;
+  }
+  .meeting-actions {
+    width: 40%;
+  }
+  .host-details {
+    width: 40%;
 
   }
 }
@@ -41,35 +52,34 @@
 //   // border-radius: 4px;
 // }
 
-.top-info {
-  display: flex;
-  justify-content: center;
-  width: 75%;
-  margin: 0 auto;
-  padding: 10px;
+// .top-info {
+//   display: flex;
+//   justify-content: center;
+//   width: 50%;
+//   margin: 0 auto;
+//   padding: 10px;
 
-  .meeting-info {
-    width: 40%;
-    // height: 300px;
-    padding-right: 30px;
-    // align-items: flex-start;
-  }
-}
+//   .meeting-info {
+//     width: 40%;
+//     // height: 300px;
+//     padding-right: 30px;
+//     // align-items: flex-start;
+//   }
+// }
 
-.bottom-info {
-  display: flex;
-  justify-content: center;
-  width: 75%;
-  padding: 10px;
+// .bottom-info {
+//   display: flex;
+//   justify-content: center;
+//   width: 75%;
+//   padding: 10px;
 
-  .meeting-actions {
-    width: 40%;
-  }
+//   .meeting-actions {
+//     width: 40%;
+//   }
 
   .host-details {
     width: 40%;
   }
 
-}
 
 
