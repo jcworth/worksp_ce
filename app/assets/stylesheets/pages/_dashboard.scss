@@ -4,13 +4,12 @@
   height: 100%;
   padding-top: 40px;
   display: flex;
+  width: 80%;
 
 }
 
-
 .self-container {
   width: 40%;
-  // height:
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +18,12 @@
 
 .dash-info-container {
   width: 60%;
-  // border: 1px solid black;
 }
 
 .meeting-list-container {
   width: 90%;
-  padding: 10px;
-  box-shadow: 1px 1px 3px lightgrey;
+  // padding: 10px;
+  // box-shadow: 1px 1px 3px lightgrey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
