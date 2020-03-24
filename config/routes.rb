@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :meetings do
     resources :attendees, only: [:new, :create, :edit, :update]
   end
-  resources :groups
+  # resources :groups
 
-  get '/users/:username', to: "users#show", as: :user
+  # get '/users/:username', to: "users#show", as: :user
+  get '/dashboard', to: "pages#dashboard"
 
 end

@@ -2,12 +2,20 @@ class AttendeesController < ApplicationController
 
   def new
     @attendee = Attendee.new
-    @meeting = Meeting.find(params[:meeting_id])
+    # @meeting = Meeting.find(params[:meeting_id])
   end
 
   def create
-    @Attendee = Attendee.find(params[:id])
-    @Attendee.user = current_user
+    @attendee = Attendee.new(validate_attendee)
+    meeting = Meeting.find(params[:meeting_id])
+    @attendee.user = current_user
+    @attendee.meeting = meeting
+    if @attendee.save!
+      redirect_to meeting_path(meeting)
+    else
+      render :new
+    end
+    # @attendee.confirmed = true
     # @Attendee.meeting = @meeting
   end
 
@@ -18,6 +26,10 @@ class AttendeesController < ApplicationController
   end
 
   private
+
+  def validate_attendee
+    params.require(:attendee).permit(:message)
+  end
 
 
 end

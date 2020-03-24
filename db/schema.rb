@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_205237) do
+ActiveRecord::Schema.define(version: 2020_03_24_104239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_205237) do
     t.text "description"
     t.bigint "host"
     t.string "title"
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_meetings_on_owner_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_205237) do
 
   add_foreign_key "attendees", "meetings"
   add_foreign_key "attendees", "users"
+  add_foreign_key "meetings", "users", column: "owner_id"
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
 end

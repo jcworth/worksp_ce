@@ -1,0 +1,60 @@
+<div class="dash-container">
+  <div class="self-container">
+    <div class="user-card">
+      <div class="user-card-info">
+      <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="user-card-image">
+      <h6><%= current_user.first_name %></h6>
+      <h6><%= current_user.profession %></h6>
+      </div>
+      <div class="user-card-bio">
+        <p><%= current_user.bio %></p>
+      </div>
+      <div class="divider-line"></div>
+      <div class="user-card-actions">
+        <%= link_to 'Edit profile', edit_user_registration_path %>
+      </div>
+    </div>
+  </div>
+  <div class="dash-info-container">
+      <h5>Hosting</h5>
+    <div class="meeting-list-container">
+      <% @user.hosted_meetings.each do |meeting|  %>
+        <div class="workspace-card">
+          <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
+          <div class="workspace-avatars">
+            <ul>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+
+            </ul>
+
+          </div>
+          <div class="workspace-card-info">
+            <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
+            <h6><%= meeting.date %></h6>
+          </div>
+        </div>
+      <% end %>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- <h5>Attending</h5>
+      <% @user.attendees.where(confirmed: 'true').each do |attendee| %>
+        <%= link_to attendee.meeting.title, meeting_path(attendee.meeting) %></p>
+      <% end %>
+      <h5>Requested to join</h5>
+      <% @user.attendees.where(confirmed: 'false').each do |attendee| %>
+        <p><%= attendee.meeting.location %></p>
+      <% end %> -->
