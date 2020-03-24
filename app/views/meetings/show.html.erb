@@ -8,7 +8,7 @@
     <div class="meeting-info">
       <h5><%= @meeting.location %></h5>
       <p> <%= @meeting.date %></p>
-      <p>Hosted by <%= @host.first_name %> <%= @host.last_name %></p>
+      <p>Hosted by <%= @meeting.owner.first_name %> <%= @meeting.owner.last_name %></p>
       <p>Placeholder for description<%= @meeting.description %></p>
       <!-- <img src="#" alt="" class="mini-avatar"> -->
       <i class="fas fa-user-friends"></i>
@@ -38,12 +38,12 @@
       <!-- <h5>Organised by <%#= @host.first_name %></h5> -->
       <div class="user-card">
         <div class="user-card-info">
-        <h6><%= @host.first_name %></h6>
-        <h6><%= @host.profession %></h6>
+        <h6><%= @meeting.owner.first_name %></h6>
+        <h6><%= @meeting.owner.profession %></h6>
         <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="user-card-image">
         </div>
         <div class="user-card-bio">
-          <p><%= @host.bio %></p>
+          <p><%= @meeting.owner.bio %></p>
         </div>
       </div>
     </div>

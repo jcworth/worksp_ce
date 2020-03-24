@@ -10,6 +10,6 @@ class User < ApplicationRecord
   # has_many :memberships
   # has_many :groups, through: :memberships
 
-  attr_accessor :owner_id
+  # attr_accessor :owner_id
 
 end

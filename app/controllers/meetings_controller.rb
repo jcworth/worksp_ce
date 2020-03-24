@@ -10,8 +10,8 @@ class MeetingsController < ApplicationController
       lat: @meeting.latitude,
       long: @meeting.longitude
     }]
-    attendance = @meeting.attendees.where(host:'true').reduce
-    @host = attendance.user
+    attendance = @meeting.attendees.reduce
+    # @host = attendance.user
     # raise
   end
 
@@ -22,12 +22,13 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.create(validate_meeting)
-    @attendee = Attendee.new
-    @attendee.meeting = @meeting
-    @attendee.user = current_user
-    @attendee.host = true
-    @attendee.save!
-    if @meeting.save
+    @meeting.owner = current_user
+    # @attendee = Attendee.new
+    # @attendee.meeting = @meeting
+    # @attendee.user = current_user
+    # @attendee.host = true
+    # @attendee.save!
+    if @meeting.save!
       flash[:success] = "Meeting created!"
       redirect_to meetings_path
     else
@@ -54,6 +55,6 @@ class MeetingsController < ApplicationController
   end
 
   def validate_meeting
-    params.require(:meeting).permit(:description, :date, :location)
+    params.require(:meeting).permit(:title, :description, :date, :location)
   end
 end
