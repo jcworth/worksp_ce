@@ -48,15 +48,32 @@
 
 .workspace-card {
   width: 250px;
-  // height: 150px;
-  border-radius: 5px;
+  box-shadow: 1px 1px 3px lightgrey;
+  // border-radius: 5px;
 
   .workspace-image {
     object-fit: cover;
     height:150px;
+    padding: 10px;
+
   }
 
   .workspace-avatars {
     height: 150px;
+    padding: 10px;
+
+  }
+
+  .workspace-card-info {
+    background: rgb(219, 110, 97);
+    color: white;
+    padding: 10px;
+
+    a {
+      color: white;
+    }
+    h6 {
+      margin: 0;
+    }
   }
 }

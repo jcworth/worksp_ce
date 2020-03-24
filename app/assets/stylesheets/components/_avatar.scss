@@ -1,6 +1,8 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  position:relative;
+  border: 3px solid white;
 }
 .avatar-large {
   width: 56px;
@@ -22,4 +24,31 @@
 .mini-avatar {
   width: 10px;
   border-radius: 50%;
+}
+
+
+.workspace-avatars {
+
+  ul {
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-right: -1.5em;
+      list-style: none;
+      // line-height:
+
+      img {
+        border-radius: 50%;
+        border: 3px solid white;
+        height: 60px;
+      }
+    }
+  }
 }

@@ -16,17 +16,30 @@
     </div>
   </div>
   <div class="dash-info-container">
-    <div class="meeting-list-container">
       <h5>Hosting</h5>
+    <div class="meeting-list-container">
       <% @user.hosted_meetings.each do |meeting|  %>
         <div class="workspace-card">
           <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
           <div class="workspace-avatars">
-            <img src="#" alt="" class="avatar">
+            <ul>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+              <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+
+            </ul>
 
           </div>
-          <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
-          <h6><%= meeting.date %></h6>
+          <div class="workspace-card-info">
+            <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
+            <h6><%= meeting.date %></h6>
+          </div>
         </div>
       <% end %>
 
