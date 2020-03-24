@@ -1,5 +1,5 @@
 .new-meeting-main {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -8,15 +8,16 @@
 
 .new-meeting-form {
   width: 25%;
-  height: 400px;
-  box-shadow: 1px 1px 5px lightgrey;
-  border-radius: 5px;
-  padding: 10px;
+  box-shadow: 1px 1px 2px lightgrey;
+  // padding: 10px;
+
+  .new-form-input {
+    padding:10px;
+  }
 }
 
 .results-list {
   background: white;
-  // border: 1px solid black;
   list-style: none;
   padding: 0;
   z-index: 2;
@@ -27,12 +28,13 @@
     z-index: 3;
     cursor: pointer;
   }
-
-  // .list-on {
-  //   display: block;
-  // }
 }
 
 #list-item {
 
+}
+
+.form-tab {
+  background: $workorng;
+  padding: 10px;
 }
