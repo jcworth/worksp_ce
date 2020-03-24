@@ -9,24 +9,39 @@
       <div class="user-card-bio">
         <p><%= current_user.bio %></p>
       </div>
-    </div>
-    <div class="dashboard-actions">
-      <%= link_to 'edit user', edit_user_registration_path %>
+      <div class="divider-line"></div>
+      <div class="user-card-actions">
+        <%= link_to 'Edit profile', edit_user_registration_path %>
+      </div>
     </div>
   </div>
   <div class="dash-info-container">
-    <h5>Hosting</h5>
-    <% @user.hosted_meetings.each do |meeting|  %>
-      <p><%= meeting.title %></p>
-    <% end %>
+    <div class="meeting-list-container">
+      <h5>Hosting</h5>
+      <% @user.hosted_meetings.each do |meeting|  %>
+        <div class="workspace-card">
+          <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
+          <div class="workspace-avatars">
+            <img src="#" alt="" class="avatar">
 
-    <h5>Attending</h5>
-    <% @user.attendees.where(host: 'false').each do |attendee| %>
-      <p><%= attendee.meeting.location %></p>
-    <% end %>
-    <h5>Requested to join</h5>
-    <% @user.attendees.where(confirmed: 'false', host: 'false').each do |attendee| %>
-      <p><%= attendee.meeting.location %></p>
-    <% end %>
+          </div>
+          <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
+          <h6><%= meeting.date %></h6>
+        </div>
+      <% end %>
+
+
+
+    </div>
   </div>
 </div>
+
+
+<!-- <h5>Attending</h5>
+      <% @user.attendees.where(confirmed: 'true').each do |attendee| %>
+        <%= link_to attendee.meeting.title, meeting_path(attendee.meeting) %></p>
+      <% end %>
+      <h5>Requested to join</h5>
+      <% @user.attendees.where(confirmed: 'false').each do |attendee| %>
+        <p><%= attendee.meeting.location %></p>
+      <% end %> -->

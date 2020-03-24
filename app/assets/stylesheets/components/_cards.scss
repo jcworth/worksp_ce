@@ -1,25 +1,22 @@
 .user-card {
-  // height: 90%;
-
-  border-radius: 5px;
-  // box-shadow: 1px 1px 5px lightgrey;
+  // border-radius: 5px;
   width: 250px;
-  // display: flex;
-  // flex-direction: column;
-  padding: 10px;
+  // padding: 10px;
+  box-shadow: 1px 1px 3px lightgrey;
 
   .user-card-image {
     border-radius: 50%;
     height: 60px;
     width: 60px;
     align-self: center;
+    padding: 10px;
   }
 
   .user-card-info {
-    // text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 10px;
 
     h6 {
       text-align: center;
@@ -29,4 +26,37 @@
     }
   }
 
+  .user-card-bio {
+    padding: 20px;
+  }
+
+  .divider-line {
+    // width: 100%;
+    // background: lightgrey;
+    // height: 1px;
+  }
+
+  .user-card-actions {
+    padding: 10px;
+    background: rgb(219, 110, 97);
+
+    a {
+      color: white;
+    }
+  }
+}
+
+.workspace-card {
+  width: 250px;
+  // height: 150px;
+  border-radius: 5px;
+
+  .workspace-image {
+    object-fit: cover;
+    height:150px;
+  }
+
+  .workspace-avatars {
+    height: 150px;
+  }
 }
