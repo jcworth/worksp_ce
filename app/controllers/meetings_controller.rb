@@ -21,7 +21,7 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @meeting = Meeting.new(validate_meeting)
+    @meeting = Meeting.create(validate_meeting)
     @attendee = Attendee.new
     @attendee.meeting = @meeting
     @attendee.user = current_user
