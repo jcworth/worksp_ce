@@ -1,7 +1,5 @@
 .user-card {
-  // border-radius: 5px;
   width: 250px;
-  // padding: 10px;
   box-shadow: 1px 1px 3px lightgrey;
 
   .user-card-image {
@@ -44,6 +42,10 @@
       color: white;
     }
   }
+}
+
+.box-shadow {
+
 }
 
 .workspace-card {

@@ -2,50 +2,52 @@
   <%#= user.email %>
 <%# end %>
 
+ <!--  <div class="show-title">
+    <h1><%= @meeting.title %></h1>
+  </div> -->
 <div class="meeting-container">
-  <h1><%= @meeting.title %></h1>
-  <div class="top-info">
+  <div class="meeting">
     <div class="meeting-info">
-      <h5><%= @meeting.location %></h5>
-      <p> <%= @meeting.date %></p>
-      <p>Hosted by <%= @meeting.owner.first_name %> <%= @meeting.owner.last_name %></p>
-      <p>Placeholder for description<%= @meeting.description %></p>
-      <!-- <img src="#" alt="" class="mini-avatar"> -->
-      <i class="fas fa-user-friends"></i>
-      <i class="fas fa-user-friends"></i>
-      <i class="fas fa-user-friends"></i>
-      <i class="fas fa-user-friends"></i>
-    </div>
-    <div id="map"
-      style="width: 40%;
-      height: 250px;
-      align-self: flex-start;"
-      data-markers="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+      <div class="meeting-details">
+        <h5><%= @meeting.location %></h5>
+        <p> <%= @meeting.date %></p>
+        <p><%= @meeting.description %></p>
+        <p>Hosted by <%= @meeting.owner.first_name %> <%= @meeting.owner.last_name %></p>
+          <div class="host-card">
+            <div class="host-card-info">
+              <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="host-card-image">
+              <h6><%= @meeting.owner.profession %></h6>
+            </div>
+          </div>
+      </div>
+      <div class="workspace-avatars">
+        <h6>Attending:</h6>
+        <ul>
+          <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+          <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+          <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+          <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+        </ul>
+      </div>
+      <div class="meeting-actions">
+        <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting) %> <br>
+        <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %> <br>
+        <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
+      </div>
     </div>
   </div>
 
-  <div class="bottom-info">
-    <div class="meeting-actions">
-      <h5>Actions:</h5>
-      <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting) %>
-      <!-- <p>placeholder for join request</p> -->
-      <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %>
-      <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
-    </div>
-    <div class="host-details">
-      <h5>About the organiser:</h5>
-      <!-- <h5>Organised by <%#= @host.first_name %></h5> -->
-      <div class="user-card">
-        <div class="user-card-info">
-        <h6><%= @meeting.owner.first_name %></h6>
-        <h6><%= @meeting.owner.profession %></h6>
-        <img src="https://img.discogs.com/J0dDznbRdLgNsWDDktbsC0xCFRA=/fit-in/500x500/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3649743-1338847217-5371.jpeg.jpg" alt="" class="user-card-image">
-        </div>
-        <div class="user-card-bio">
-          <p><%= @meeting.owner.bio %></p>
-        </div>
+  <div class="meeting-map">
+    <div class="show-map-container">
+      <div id="map"
+        style="width: 100%;
+        height: 500px;
+        align-self: flex-start;
+        "
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
       </div>
     </div>
+  </div>
 </div>
-</div>
+
