@@ -11,23 +11,16 @@ class MeetingsController < ApplicationController
       long: @meeting.longitude
     }]
     attendance = @meeting.attendees.reduce
-    # @host = attendance.user
-    # raise
+
   end
 
   def new
     @meeting = Meeting.new
-    # @attendee = Attendee.new
   end
 
   def create
     @meeting = Meeting.create(validate_meeting)
     @meeting.owner = current_user
-    # @attendee = Attendee.new
-    # @attendee.meeting = @meeting
-    # @attendee.user = current_user
-    # @attendee.host = true
-    # @attendee.save!
     if @meeting.save!
       flash[:success] = "Meeting created!"
       redirect_to meetings_path

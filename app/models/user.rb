@@ -6,10 +6,8 @@ class User < ApplicationRecord
 
   has_many :attendees
   has_many :meetings, through: :attendees
-  has_many :hosted_meetings, class_name: "Meeting"
+  has_many :hosted_meetings, class_name: "Meeting", foreign_key: :owner_id
   # has_many :memberships
   # has_many :groups, through: :memberships
-
-  # attr_accessor :owner_id
 
 end

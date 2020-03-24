@@ -16,8 +16,8 @@
   </div>
   <div class="dash-info-container">
     <h5>Hosting</h5>
-    <% @user.meetings.each do |meeting|  %>
-      <p><%= meeting.location %></p>
+    <% @user.hosted_meetings.each do |meeting|  %>
+      <p><%= meeting.title %></p>
     <% end %>
 
     <h5>Attending</h5>
