@@ -12,20 +12,11 @@ const initPhotonAuto = () => {
 
   const insertResults = (data) => {
     data.features.forEach((location) => {
-      // results.innerHTML = "";
-      // results.classList.toggle('list-on')
       console.log(location)
-      const result = `<li class="list-item">${location.properties.name}</li>`
-      setTimeout(function () {
-        results.insertAdjacentHTML('afterbegin', result);
-      }, 1000);
-      // results.innerHTML = "";
+      const result = `<li>${location.properties.name}, ${location.properties.postcode}, ${location.properties.city || location.properties.country }</li>`
+      results.insertAdjacentHTML('beforeend', result);
     });
   };
-
-  // setTimeout(function() {
-  //      clickPlay.classList.toggle('click');
-  // }, 200)
 
   // function to query API with the location
   // http://photon.komoot.de/api/?q=${query}&limit=3
@@ -35,20 +26,19 @@ const initPhotonAuto = () => {
     fetch(nominatimUrl)
       .then(response => response.json())
       .then((data) => {
-        // console.log(data);
         insertResults(data);
     });
   };
 
   // grab input from location input
   const input = document.getElementById('meeting-address');
-  // const button = document.getElementById('search-button');
-  // const searchLocation = document.getElementById('search-location')
-  input.addEventListener('keyup', (event) => {
-    // event.preventDefault();
-    results.innerHTML = "";
-    sendRequest(input.value);
-    // console.log(input.value);
+  const submit = document.getElementById('search-button')
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (input.value.length > 4) {
+      results.innerHTML = "";
+      sendRequest(input.value);
+    }
   });
 };
 

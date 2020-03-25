@@ -19,8 +19,9 @@
 .results-list {
   background: white;
   list-style: none;
-  padding: 0;
   z-index: 2;
+  margin: 5px;
+  padding: 0;
   // height: 50px;
   // display: hidden;
 
@@ -33,8 +34,9 @@
   }
 }
 
-#list-item {
-
+.on {
+  padding: 10px;
+  box-shadow: 1px 1px 2px lightgrey;
 }
 
 .list-target {
@@ -44,4 +46,9 @@
 .form-tab {
   background: $workorng;
   padding: 10px;
+}
+
+.search-line {
+  // display: flex;
+  // align-content: center;
 }

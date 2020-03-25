@@ -5,10 +5,13 @@
         <%= f.input :title, label: "Name your workspace" %>
         <%= f.input :description, label: "What are you working on?" %>
         <%= f.input :date, as: :datetime %>
-        <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
-        <input type="submit" id="search-button">
-        <ul class="results-list" id="results">
-        </ul>
+        <div class="search-line">
+          <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
+          <button class="form-submit-btn" id="search-button">Search</button>
+          <ul class="results-list" id="results">
+          </ul>
+          <!-- <input type="submit" id="search-button"> -->
+        </div>
       </div>
       <div class="form-tab">
         <%= f.button :submit, 'Create new workspace', class: 'form-submit-btn'%>

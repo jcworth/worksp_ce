@@ -38,6 +38,7 @@ const list = document.getElementById('results');
 list.addEventListener('click', (event) => {
   if (event.target && event.target.nodeName == 'LI') {
     inputArea.value = event.target.innerText;
+    list.classList.toggle('on')
   }
 });
 
