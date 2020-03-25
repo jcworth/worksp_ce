@@ -9,34 +9,46 @@ const initPhotonAuto = () => {
   // display results
   const results = document.getElementById('results');
   results.innerHTML = "";
+
   const insertResults = (data) => {
     data.features.forEach((location) => {
       // results.innerHTML = "";
       // results.classList.toggle('list-on')
-      const result = `<li id="list-item">${location.properties.name}, ${location.properties.country}</li>`
-      results.insertAdjacentHTML('beforeend', result);
+      console.log(location)
+      const result = `<li class="list-item">${location.properties.geocoding.name}</li>`
+      setTimeout(function () {
+        results.insertAdjacentHTML('beforeend', result);
+      }, 1000);
+      // results.innerHTML = "";
     });
   };
 
-  // function to query mapbox places API with the location
+  // setTimeout(function() {
+  //      clickPlay.classList.toggle('click');
+  // }, 200)
+
+  // function to query API with the location
+  // http://photon.komoot.de/api/?q=${query}&limit=3
+  // `https://nominatim.openstreetmap.org/search/gb/${query}`
   const sendRequest = (query) => {
-    const photonUrl = (`http://photon.komoot.de/api/?q=${query}&limit=3`);
-    fetch(photonUrl)
+    const nominatimUrl = (`https://nominatim.openstreetmap.org/search/gb/${query}/?format=geocodejson&limit=3`);
+    fetch(nominatimUrl)
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         insertResults(data);
     });
   };
 
   // grab input from location input
-  const input = document.getElementById('meeting-address')
+  const input = document.getElementById('meeting-address');
+  const button = document.getElementById('search-button');
   // const searchLocation = document.getElementById('search-location')
-  input.addEventListener('keyup', (event) => {
-    // event.preventDefault();
-    results.innerHTML = "";
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    // results.innerHTML = "";
     sendRequest(input.value);
-    console.log(input.value);
+    // console.log(input.value);
   });
 };
 

@@ -27,11 +27,18 @@
   li {
     z-index: 3;
     cursor: pointer;
+    &:hover {
+      background: lightgrey;
+    }
   }
 }
 
 #list-item {
 
+}
+
+.list-target {
+  background: lightgrey;
 }
 
 .form-tab {

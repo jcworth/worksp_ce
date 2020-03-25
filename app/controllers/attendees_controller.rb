@@ -2,7 +2,7 @@ class AttendeesController < ApplicationController
 
   def new
     @attendee = Attendee.new
-    # @meeting = Meeting.find(params[:meeting_id])
+    @meeting = Meeting.find(params[:meeting_id])
   end
 
   def create

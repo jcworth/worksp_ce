@@ -6,6 +6,7 @@
         <%= f.input :description, label: "What are you working on?" %>
         <%= f.input :date, as: :datetime %>
         <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
+        <input type="submit" id="search-button">
         <ul class="results-list" id="results">
           <li id="list-item"></li>
         </ul>
@@ -18,10 +19,5 @@
     <!-- <input type="submit" id="search-location"> -->
 
   </div>
-<!--   <div id="map"
-       style="width: 40%;
-       height: 600px;"
-       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY']%>">
-  </div> -->
 </div>
 
