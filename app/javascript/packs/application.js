@@ -33,10 +33,12 @@ document.addEventListener('turbolinks:load', () => {
 initPhotonAuto();
 
 
-// const inputArea = document.getElementById('meeting-address');
-const list = document.querySelectorAll('list-item');
+const inputArea = document.getElementById('meeting-address');
+const list = document.getElementById('results');
 list.addEventListener('click', (event) => {
-  inputArea.value = event.currentTarget.innerText;
+  if (event.target && event.target.nodeName == 'LI') {
+    inputArea.value = event.target.innerText;
+  }
 });
 
 // const listItem =

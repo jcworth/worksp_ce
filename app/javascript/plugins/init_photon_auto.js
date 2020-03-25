@@ -15,9 +15,9 @@ const initPhotonAuto = () => {
       // results.innerHTML = "";
       // results.classList.toggle('list-on')
       console.log(location)
-      const result = `<li class="list-item">${location.properties.geocoding.name}</li>`
+      const result = `<li class="list-item">${location.properties.name}</li>`
       setTimeout(function () {
-        results.insertAdjacentHTML('beforeend', result);
+        results.insertAdjacentHTML('afterbegin', result);
       }, 1000);
       // results.innerHTML = "";
     });
@@ -29,9 +29,9 @@ const initPhotonAuto = () => {
 
   // function to query API with the location
   // http://photon.komoot.de/api/?q=${query}&limit=3
-  // `https://nominatim.openstreetmap.org/search/gb/${query}`
+  // `https://nominatim.openstreetmap.org/search/gb/${query}/?format=geocodejson&limit=3`
   const sendRequest = (query) => {
-    const nominatimUrl = (`https://nominatim.openstreetmap.org/search/gb/${query}/?format=geocodejson&limit=3`);
+    const nominatimUrl = (`http://photon.komoot.de/api/?q=${query}&limit=3`);
     fetch(nominatimUrl)
       .then(response => response.json())
       .then((data) => {
@@ -42,11 +42,11 @@ const initPhotonAuto = () => {
 
   // grab input from location input
   const input = document.getElementById('meeting-address');
-  const button = document.getElementById('search-button');
+  // const button = document.getElementById('search-button');
   // const searchLocation = document.getElementById('search-location')
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    // results.innerHTML = "";
+  input.addEventListener('keyup', (event) => {
+    // event.preventDefault();
+    results.innerHTML = "";
     sendRequest(input.value);
     // console.log(input.value);
   });
