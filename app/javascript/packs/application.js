@@ -30,21 +30,16 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 });
 
-initPhotonAuto()
+initPhotonAuto();
+
 
 const inputArea = document.getElementById('meeting-address');
-const listItem = document.getElementById('list-item');
-
-listItem.addEventListener('click', (event) => {
-  inputArea.value = event.currentTarget.innerText;
+const list = document.getElementById('results');
+list.addEventListener('click', (event) => {
+  if (event.target && event.target.nodeName == 'LI') {
+    inputArea.value = event.target.innerText;
+    list.classList.toggle('on')
+  }
 });
-
-// mapboxgl.accessToken = 'pk.eyJ1IjoiY2Ftcm4iLCJhIjoiY2s3dzBpYmFrMWYxcTNmcGd5NnlwdWtubyJ9.kUT1Vv1POM3rVfUfsrKSZA';
-// const map = new mapboxgl.Map({
-//   container: 'map', // Container ID
-//   style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
-//   center: [-122.25948, 37.87221], // Starting position [lng, lat]
-//   zoom: 12, // Starting zoom level
-// });
 
 

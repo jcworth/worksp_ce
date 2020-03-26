@@ -1,23 +1,25 @@
 <div class="new-meeting-main">
   <div class="new-meeting-form">
     <%= simple_form_for @meeting do |f| %>
-      <%= f.input :title, label: "Name your workspace" %>
-      <%= f.input :description, label: "What are you working on?" %>
-      <%= f.input :date, as: :datetime %>
-      <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
-      <ul class="results-list" id="results">
-        <li id="list-item"></li>
-      </ul>
-      <%= f.button :submit  %>
+      <div class="new-form-input">
+        <%= f.input :title, label: "Name your workspace" %>
+        <%= f.input :description, label: "What are you working on?" %>
+        <%= f.input :date, as: :datetime %>
+        <div class="search-line">
+          <%= f.input :location, label: "Select location or enter address", input_html: { id: 'meeting-address'} %>
+          <button class="form-submit-btn" id="search-button">Search</button>
+          <ul class="results-list" id="results">
+          </ul>
+          <!-- <input type="submit" id="search-button"> -->
+        </div>
+      </div>
+      <div class="form-tab">
+        <%= f.button :submit, 'Create new workspace', class: 'form-submit-btn'%>
+      </div>
     <% end %>
     <!-- <input type="text" id="meeting-address"> -->
     <!-- <input type="submit" id="search-location"> -->
 
   </div>
-<!--   <div id="map"
-       style="width: 40%;
-       height: 600px;"
-       data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY']%>">
-  </div> -->
 </div>
 
