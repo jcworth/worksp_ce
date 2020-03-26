@@ -8,7 +8,7 @@ class MeetingsController < ApplicationController
   def show
     @marker = [{
       lat: @meeting.latitude,
-      long: @meeting.longitude
+      lng: @meeting.longitude
     }]
     attendance = @meeting.attendees.reduce
 

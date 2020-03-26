@@ -22,6 +22,7 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+
 // import { initGmaps } from '../plugins/init_gmaps';
 // import { initMapbox } from '../plugins/init_mapbox';
 // import { initAutocomplete } from '../plugins/init_autocomplete';
