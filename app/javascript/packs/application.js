@@ -23,19 +23,6 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 
-// import { initGmaps } from '../plugins/init_gmaps';
-// import { initMapbox } from '../plugins/init_mapbox';
-// import { initAutocomplete } from '../plugins/init_autocomplete';
-// import { initPhotonAuto } from '../plugins/init_photon_auto';
-// import { initGmap } from '../plugins/map';
-// document.addEventListener('turbolinks:load', () => {
-//   initMapbox();
-// });
-
-// initGmaps();
-// initPhotonAuto();
-
-
 // const inputArea = document.getElementById('meeting-address');
 // const list = document.getElementById('results');
 // list.addEventListener('click', (event) => {

@@ -6,9 +6,10 @@ class MeetingsController < ApplicationController
   end
 
   def show
+    data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
     @marker = [{
-      lat: @meeting.latitude,
-      lng: @meeting.longitude
+      lat: data[0].geometry['location']['lat'],
+      lng: data[0].geometry['location']['lng']
     }]
     attendance = @meeting.attendees.reduce
 
@@ -48,6 +49,6 @@ class MeetingsController < ApplicationController
   end
 
   def validate_meeting
-    params.require(:meeting).permit(:title, :description, :date, :location)
+    params.require(:meeting).permit(:title, :description, :date, :location, :google_place_id)
   end
 end
