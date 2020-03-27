@@ -1,4 +1,4 @@
-\<div class="home-main">
+<div class="home-main">
   <div class="landing-container">
     <div class="home-cta">
       <h1>Worksp_ce</h1>
@@ -8,11 +8,13 @@
         <%= link_to "Create a new meeting", new_meeting_path %>
       </div>
     </div>
-    <div id="map"
-         style="width: 40%;
-         height: 560px;"
-         data-markers="<%= @markers.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-    </div>
+
+    <div
+      id="map"
+      style="width: 40%;
+      height: 560px;"
+      data-markers="<%= @markers.to_json %>"
+    ></div>
+
   </div>
 </div>

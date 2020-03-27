@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates_uniqueness_of :username
+
   has_many :attendees
   has_many :meetings, through: :attendees
   has_many :hosted_meetings, class_name: "Meeting", foreign_key: :owner_id
