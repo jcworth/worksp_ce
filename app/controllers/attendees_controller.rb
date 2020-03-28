@@ -3,6 +3,7 @@ class AttendeesController < ApplicationController
   def new
     @attendee = Attendee.new
     @meeting = Meeting.find(params[:meeting_id])
+    respond_to { |format| format.js }
   end
 
   def create

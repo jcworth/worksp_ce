@@ -11,7 +11,7 @@ class MeetingsController < ApplicationController
       lat: data[0].geometry['location']['lat'],
       lng: data[0].geometry['location']['lng']
     }]
-    attendance = @meeting.attendees.reduce
+    # attendance = @meeting.attendees.reduce
 
   end
 

@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@meeting, @attendee] do |f| %>
+    <%= f.input :message, label: 'Message the host' %>
+    <%= f.button :submit, 'Request to join', class: "form-submit-btn" %>
+  <% end %>
+</div>
