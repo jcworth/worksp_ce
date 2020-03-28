@@ -4,6 +4,7 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.new
     @meeting = Meeting.find(params[:meeting_id])
     respond_to { |format| format.js }
+    authorize @attendee
   end
 
   def create
@@ -11,6 +12,7 @@ class AttendeesController < ApplicationController
     meeting = Meeting.find(params[:meeting_id])
     @attendee.user = current_user
     @attendee.meeting = meeting
+    authorize @attendee
     if @attendee.save!
       redirect_to meeting_path(meeting)
     else
