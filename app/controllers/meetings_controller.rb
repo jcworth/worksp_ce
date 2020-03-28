@@ -2,7 +2,8 @@ class MeetingsController < ApplicationController
   before_action :find_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meetings = Meeting.all
+    # @meetings = Meeting.all
+    @meetings = policy_scope(Meeting)
   end
 
   def show
@@ -38,9 +39,11 @@ class MeetingsController < ApplicationController
   def update
     @meeting.update(validate_meeting)
     redirect_to meeting_path(@meeting)
+    authorize @meeting
   end
 
   def destroy
+    authorize @meeting
     @meeting.destroy
     redirect_to meetings_path
   end
