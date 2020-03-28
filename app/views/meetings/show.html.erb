@@ -30,7 +30,9 @@
         </ul>
       </div>
       <div class="meeting-actions">
-        <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting) %> <br>
+        <div id="new-attendance-render">
+          <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting), remote: true %> <br>
+        </div>
         <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %> <br>
         <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
       </div>
@@ -44,7 +46,7 @@
         height: 500px;
         align-self: flex-start;
         "
-        data-markers="<%= @marker.to_json %>"
+        data-markers="<%#= @marker.to_json %>"
         ></div>
     </div>
   </div>

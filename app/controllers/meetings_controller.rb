@@ -6,11 +6,11 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
-    @marker = [{
-      lat: data[0].geometry['location']['lat'],
-      lng: data[0].geometry['location']['lng']
-    }]
+    # data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
+    # @marker = [{
+    #   lat: data[0].geometry['location']['lat'],
+    #   lng: data[0].geometry['location']['lng']
+    # }]
     attendance = @meeting.attendees.reduce
 
   end
