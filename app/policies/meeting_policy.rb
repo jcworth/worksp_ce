@@ -14,11 +14,16 @@ class MeetingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.owner == user
+    user_is_owner?
   end
 
   def destroy?
-    record.owner == user
+    user_is_owner?
   end
 
+  private
+
+  def user_is_owner?
+    record.owner == user
+  end
 end
