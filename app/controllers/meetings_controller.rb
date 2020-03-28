@@ -6,25 +6,28 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
-    @marker = [{
-      lat: data[0].geometry['location']['lat'],
-      lng: data[0].geometry['location']['lng']
-    }]
+    # data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
+    # @marker = [{
+    #   lat: data[0].geometry['location']['lat'],
+    #   lng: data[0].geometry['location']['lng']
+    # }]
     # attendance = @meeting.attendees.reduce
 
   end
 
   def new
     @meeting = Meeting.new
+    authorize @meeting
   end
 
   def create
     @meeting = Meeting.create(validate_meeting)
     @meeting.owner = current_user
+    # @meeting.user = current_user
+    authorize @meeting
     if @meeting.save!
       flash[:success] = "Meeting created!"
-      redirect_to meetings_path
+      redirect_to meeting_path(@meeting)
     else
       render :new
     end
@@ -46,6 +49,7 @@ class MeetingsController < ApplicationController
 
   def find_meeting
     @meeting = Meeting.find(params[:id])
+    authorize @meeting
   end
 
   def validate_meeting

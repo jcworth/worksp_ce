@@ -30,11 +30,14 @@
         </ul>
       </div>
       <div class="meeting-actions">
-        <div id="new-attendance-render">
-          <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting), remote: true %> <br>
-        </div>
-        <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %> <br>
-        <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
+        <% if current_user == @meeting.owner %>
+          <%= link_to "Edit this meeting", edit_meeting_path(@meeting), class: 'button' %> <br>
+          <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
+        <% else %>
+          <div id="new-attendance-render">
+            <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting), remote: true %> <br>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
