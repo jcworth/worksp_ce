@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     # @meeting = Meeting.new
-    @meetings = Meeting.geocoded
+    # @meetings = Meeting.geocoded
     # @markers = @meetings.map do |meeting|
     #   data = Geocoder.search("#{meeting.google_place_id}", lookup: :google, google_place_id: true)
     #   {
