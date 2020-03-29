@@ -36,7 +36,7 @@
 
   .user-card-actions {
     padding: 10px;
-    background: rgb(219, 110, 97);
+    background: $workorng;
 
     a {
       color: white;
@@ -44,9 +44,6 @@
   }
 }
 
-.box-shadow {
-
-}
 
 .workspace-card {
   width: 250px;
@@ -66,14 +63,8 @@
 
   }
 
-  .workspace-avatars {
-    height: 150px;
-    padding: 10px;
-
-  }
-
   .workspace-card-info {
-    background: rgb(219, 110, 97);
+    background: $workorng;
     color: white;
     padding: 10px;
 
@@ -82,6 +73,38 @@
     }
     h6 {
       margin: 0;
+    }
+  }
+}
+
+.request-card {
+  border-left: 3px solid $workorng;
+  width: 250px;
+  // border: 1px solid black;
+  box-shadow: 1px 1px 3px lightgrey;
+
+  .request-body {
+    display: flex;
+  }
+
+  img {
+
+    border-radius: 50%;
+    border: 3px solid white;
+    height: 60px;
+    width: 60px;
+  }
+
+  .request-info {
+
+  }
+
+  .request-card-actions {
+    padding: 10px;
+    background: $workorng;
+
+    a {
+      color: white;
     }
   }
 }

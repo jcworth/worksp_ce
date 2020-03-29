@@ -44,7 +44,18 @@
     <h5>Requests to join</h5>
     <div class="meeting-list-container">
       <% @requests.each do |request| %>
-        <%=  %>
+        <div class="request-card">
+          <div class="request-body">
+            <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+            <div class="request-info">
+              <%= request.meeting.location %>
+              <%= request.message %>
+            </div>
+          </div>
+          <div class="request-card-actions">
+
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

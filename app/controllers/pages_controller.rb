@@ -17,10 +17,15 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @hosted_meetings = current_user.hosted_meetings
-    @requests = Attendee.where.not(user_id: current_user).where(confirmed: false)
-    raise
+    # @hosted_meetings = current_user.hosted_meetings
+    @requests = Attendee.joins(:meeting).where(meetings: {owner_id: current_user})
   end
 end
 
+# requests = Attendee.joins(:meeting).where(meetings: {owner_id: 2})
+# @requests = Attendee.joins(:meeting).where(meetings: {owner_id: @user})
+
+
+# Attendee.where.not(user_id: current_user).where(confirmed: false)
+# Attendee.joins(meetings: { owner: current_user }
 
