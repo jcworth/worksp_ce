@@ -11,21 +11,11 @@ class PagesController < ApplicationController
         infoWindow: {
           content: render_to_string(partial: "info_window", locals: { meeting: meeting })
         }
-        # infoWindow: render_to_string(partial: "info_window", locals: { meeting: meeting })
       }
     end
   end
 
   def dashboard
-    # @hosted_meetings = current_user.hosted_meetings
-    @requests = Attendee.joins(:meeting).where(meetings: {owner_id: current_user})
+    @requests = Attendee.joins(:meeting).where(meetings: {owner_id: current_user}, attendees: {confirmed: false})
   end
 end
-
-# requests = Attendee.joins(:meeting).where(meetings: {owner_id: 2})
-# @requests = Attendee.joins(:meeting).where(meetings: {owner_id: @user})
-
-
-# Attendee.where.not(user_id: current_user).where(confirmed: false)
-# Attendee.joins(meetings: { owner: current_user }
-

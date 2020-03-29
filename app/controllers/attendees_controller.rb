@@ -29,6 +29,7 @@ class AttendeesController < ApplicationController
     @attendee.update(validate_attendee)
     # redirect_to meeting_path(@meeting)
     authorize @attendee
+    # flash[:notice] = "Request updated"
   end
 
   private
