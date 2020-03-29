@@ -18,7 +18,7 @@
   <div class="dash-info-container">
 
     <% if current_user.hosted_meetings.length > 0 %>
-      <h5>Hosting</h5>
+      <h5>Your workspaces</h5>
       <div class="meeting-list-container">
         <% current_user.hosted_meetings.each do |meeting|  %>
           <div class="workspace-card">
@@ -45,7 +45,7 @@
       </div>
     <% end %>
     <% if !@received_requests.empty? %>
-      <h5>Received requests</h5>
+      <h5>Requests to join your workspaces</h5>
       <div class="meeting-list-container">
         <% @received_requests.each do |request| %>
           <div class="request-card">
@@ -66,7 +66,7 @@
       </div>
     <% end %>
     <% if !@pending_requests.empty? %>
-      <h5>Pending requests</h5>
+      <h5>Your requests to join a workspace</h5>
       <div class="meeting-list-container">
         <% @pending_requests.each do |request| %>
           <div class="pending-card">
