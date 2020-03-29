@@ -119,3 +119,16 @@
     }
   }
 }
+
+.pending-card {
+  width: 250px;
+  height: 150px;
+  box-shadow: 1px 1px 3px lightgrey;
+  background-image:   linear-gradient(to bottom, rgba(10,0,0,0.2), rgba(0,10,0,0.2)),
+url('https://source.unsplash.com/250x200/?working');
+  object-fit: contain;
+
+  img {
+    object-fit: contain;
+  }
+}

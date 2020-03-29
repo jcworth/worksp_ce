@@ -27,8 +27,9 @@ class AttendeesController < ApplicationController
 
   def update
     @attendee.update(validate_attendee)
-    # redirect_to meeting_path(@meeting)
     authorize @attendee
+    redirect_to dashboard_path
+
     # flash[:notice] = "Request updated"
   end
 
@@ -40,7 +41,7 @@ class AttendeesController < ApplicationController
   end
 
   def validate_attendee
-    params.require(:attendee).permit(:message, :confirmed)
+    params.require(:attendee).permit(:message, :confirmed, :declined)
   end
 
 
