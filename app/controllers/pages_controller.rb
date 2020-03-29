@@ -17,6 +17,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
+    @hosted_meetings = current_user.hosted_meetings
+    @requests = Attendee.where.not(user_id: current_user).where(confirmed: false)
+    raise
   end
 end
+
+

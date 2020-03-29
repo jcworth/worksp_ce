@@ -16,9 +16,9 @@
     </div>
   </div>
   <div class="dash-info-container">
-      <h5>Hosting</h5>
+    <h5>Hosting</h5>
     <div class="meeting-list-container">
-      <% @user.hosted_meetings.each do |meeting|  %>
+      <% current_user.hosted_meetings.each do |meeting|  %>
         <div class="workspace-card">
           <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
           <div class="workspace-avatars">
@@ -40,19 +40,22 @@
           </div>
         </div>
       <% end %>
-
-
-
+    </div>
+    <h5>Requests to join</h5>
+    <div class="meeting-list-container">
+      <% @requests.each do |request| %>
+        <%=  %>
+      <% end %>
     </div>
   </div>
 </div>
 
 
 <!-- <h5>Attending</h5>
-      <% @user.attendees.where(confirmed: 'true').each do |attendee| %>
-        <%= link_to attendee.meeting.title, meeting_path(attendee.meeting) %></p>
-      <% end %>
+      <%# @user.attendees.where(confirmed: 'true').each do |attendee| %>
+        <%#= link_to attendee.meeting.title, meeting_path(attendee.meeting) %></p>
+      <%# end %>
       <h5>Requested to join</h5>
-      <% @user.attendees.where(confirmed: 'false').each do |attendee| %>
-        <p><%= attendee.meeting.location %></p>
-      <% end %> -->
+      <%# @user.attendees.where(confirmed: 'false').each do |attendee| %>
+        <p><%#= attendee.meeting.location %></p>
+      <%# end %> -->
