@@ -53,7 +53,9 @@
             </div>
           </div>
           <div class="request-card-actions">
-            <%= link_to "edit", edit_meeting_attendee_path(request.meeting, request) %>
+            <%#= render 'attendees/edit', locals: {meeting: request.meeting, attendee: request } %>
+            <%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put' %>
+            <%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { confirmed: false}), method: 'put' %>
           </div>
         </div>
       <% end %>
