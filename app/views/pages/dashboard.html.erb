@@ -65,11 +65,10 @@
                   <p><%= request.meeting.location %></p>
                   <p><%= request.message %></p>
                 </div>
-              </div>
-              <div class="request-card-actions">
-                <%#= render 'attendees/edit', locals: {meeting: request.meeting, attendee: request } %>
-                <%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put' %>
-                <%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { declined: true}), method: 'put' %>
+                <div class="request-card-actions">
+                  <p><%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put' %></p>
+                  <p><%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { declined: true}), method: 'put' %></p>
+                </div>
               </div>
             </div>
           <% end %>
@@ -83,9 +82,14 @@
         <h5>Your requests to join a workspace</h5>
         <div class="meeting-list-container">
           <% @pending_requests.each do |request| %>
-            <div class="pending-card">
-              <%= link_to request.meeting.title, meeting_path(request.meeting) %>
-              <!-- <img src="https://source.unsplash.com/250x200/?working" alt=""> -->
+            <div class="request-card">
+              <div class="request-body">
+                <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+                <div class="request-info">
+                  <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
+                  <p><%= request.confirmed %></p>
+                </div>
+              </div>
             </div>
           <% end %>
         </div>

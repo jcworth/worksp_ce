@@ -79,12 +79,13 @@
 
 .request-card {
   border-left: 3px solid $workorng;
-  width: 250px;
+  width: 100%;
   // border: 1px solid black;
   box-shadow: 1px 1px 3px lightgrey;
 
   .request-body {
     display: flex;
+    height: 100%;
   }
 
   img {
@@ -98,6 +99,7 @@
 
   .request-info {
     padding: 10px;
+    flex-grow: 1;
 
     p {
       margin: 0px;
@@ -107,25 +109,37 @@
   .request-card-actions {
     padding: 10px;
     background: $workorng;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 
     a {
       color: white;
 
       &:hover {
-        // text-decoration: none;
         transition: 0.1s;
         transform: scale(1.2)
       }
     }
+
+    p {
+      margin: 0;
+    }
   }
 }
 
-.pending-card {
-  width: 250px;
-  height: 150px;
-  box-shadow: 1px 1px 3px lightgrey;
-  background-image:   linear-gradient(to bottom, rgba(10,0,0,0.2), rgba(0,10,0,0.2)),
-url('examplelocation.png');
-  object-fit: cover;
+// .pending-card {
+//   width: 250px;
+//   height: 150px;
+//   box-shadow: 1px 1px 3px lightgrey;
+//   background-image:   linear-gradient(to bottom, rgba(10,0,0,0.2), rgba(0,10,0,0.2)),
+// url('examplelocation.png');
+//   object-fit: cover;
+// }
 
-}
+// .list-card {
+//   width: 100%
+
+// }
