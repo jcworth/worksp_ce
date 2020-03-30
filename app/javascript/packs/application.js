@@ -22,6 +22,18 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+import { openTab } from "../components/openTab"
+
+document.querySelectorAll('.tab-content').forEach((element) => {
+  element.style.display = "none"
+});
+document.querySelector('.tab-select').addEventListener('click', (event) => {
+  if (event.target && event.target.nodeName === 'BUTTON') {
+    const request = event.target.dataset.content;
+    console.log(request);
+    openTab(request);
+  }
+});
 
 // const inputArea = document.getElementById('meeting-address');
 // const list = document.getElementById('results');

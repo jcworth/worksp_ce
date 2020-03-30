@@ -17,75 +17,73 @@
   </div>
   <div class="dash-info-container">
 
-    <% if current_user.hosted_meetings.length > 0 %>
-      <h5>Your workspaces</h5>
-      <div class="meeting-list-container">
-        <% current_user.hosted_meetings.each do |meeting|  %>
-          <div class="workspace-card">
-            <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
-            <div class="workspace-avatars">
-              <ul>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-                <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
-              </ul>
-            </div>
-            <div class="workspace-card-info">
-              <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
-              <h6><%= meeting.date %></h6>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <% if !@received_requests.empty? %>
-      <h5>Requests to join your workspaces</h5>
-      <div class="meeting-list-container">
-        <% @received_requests.each do |request| %>
-          <div class="request-card">
-            <div class="request-body">
-              <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
-              <div class="request-info">
-                <p><%= request.meeting.location %></p>
-                <p><%= request.message %></p>
+    <div class="tab-select">
+      <button data-content="received" class="tablinks">Requests</button>
+      <button data-content="sent" class="tablinks">Sent</button>
+    </div>
+
+    <div id="hosting" class="tab-content tab-hide">
+      <% if current_user.hosted_meetings.length > 0 %>
+        <h5>Your workspaces</h5>
+        <div class="meeting-list-container">
+          <% current_user.hosted_meetings.each do |meeting|  %>
+            <div class="workspace-card">
+              <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
+              <div class="workspace-avatars">
+                <ul>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                  <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+                </ul>
+              </div>
+              <div class="workspace-card-info">
+                <h6><%= link_to meeting.title, meeting_path(meeting) %></h6>
+                <h6><%= meeting.date %></h6>
               </div>
             </div>
-            <div class="request-card-actions">
-              <%#= render 'attendees/edit', locals: {meeting: request.meeting, attendee: request } %>
-              <%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put' %>
-              <%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { declined: true}), method: 'put' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div id="received" class="tab-content tab-hide">
+      <% if !@received_requests.empty? %>
+        <h5>Requests to join your workspaces</h5>
+        <div class="meeting-list-container">
+          <% @received_requests.each do |request| %>
+            <div class="request-card">
+              <div class="request-body">
+                <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+                <div class="request-info">
+                  <p><%= request.meeting.location %></p>
+                  <p><%= request.message %></p>
+                </div>
+              </div>
+              <div class="request-card-actions">
+                <%#= render 'attendees/edit', locals: {meeting: request.meeting, attendee: request } %>
+                <%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put' %>
+                <%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { declined: true}), method: 'put' %>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <% if !@pending_requests.empty? %>
-      <h5>Your requests to join a workspace</h5>
-      <div class="meeting-list-container">
-        <% @pending_requests.each do |request| %>
-          <div class="pending-card">
-            <%= link_to request.meeting.title, meeting_path(request.meeting) %>
-            <!-- <img src="https://source.unsplash.com/250x200/?working" alt=""> -->
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div id="sent" class="tab-content tab-hide">
+      <% if !@pending_requests.empty? %>
+        <h5>Your requests to join a workspace</h5>
+        <div class="meeting-list-container">
+          <% @pending_requests.each do |request| %>
+            <div class="pending-card">
+              <%= link_to request.meeting.title, meeting_path(request.meeting) %>
+              <!-- <img src="https://source.unsplash.com/250x200/?working" alt=""> -->
 
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-<!-- <h5>Attending</h5>
-      <%# @user.attendees.where(confirmed: 'true').each do |attendee| %>
-        <%#= link_to attendee.meeting.title, meeting_path(attendee.meeting) %></p>
-      <%# end %>
-      <h5>Requested to join</h5>
-      <%# @user.attendees.where(confirmed: 'false').each do |attendee| %>
-        <p><%#= attendee.meeting.location %></p>
-      <%# end %> -->
