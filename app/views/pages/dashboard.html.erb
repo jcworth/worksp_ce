@@ -26,7 +26,7 @@
     <div id="hosting" class="tab-content">
       <% if current_user.hosted_meetings.length > 0 %>
         <h5>Your workspaces</h5>
-        <div class="meeting-list-container">
+        <div class="meeting-list-container hosting-grid">
           <% current_user.hosted_meetings.each do |meeting|  %>
             <div class="workspace-card">
               <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->

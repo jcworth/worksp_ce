@@ -16,7 +16,7 @@ const initTabs = () => {
   // Select the tabs, click the first as a default view
   const select = document.querySelector('.tab-select')
 
-  document.addEventListener("load", () => {
+  document.addEventListener("turbolinks:load", () => {
     select.firstElementChild.click()
   });
 

@@ -12,23 +12,26 @@ nav {
     //   text-decoration: none;
     // }
   }
-
 }
 
-nav > ul {
-  list-style: none;
-  margin: 0 ;
-  padding: 0;
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
+.nav-logo {
+  border-left: 3px solid $workorng;
 }
 
-nav > ul > li {
-  display: inline;
-  color: #444444;
+// nav > ul {
+//   list-style: none;
+//   margin: 0 ;
+//   padding: 0;
+//   display:flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
-}
+// nav > ul > li {
+//   display: inline;
+//   color: #444444;
+
+// }
 
 nav a {
   color: #444444;
@@ -36,11 +39,11 @@ nav a {
   text-decoration: none;
 }
 
-.logo {
-  margin-left: 10px;
-  height: 40px;
-  border: 1px solid lightgrey;
-  border-radius: 50%;
-  background-size: contain;
-  align-self: center;
-}
+// .logo {
+//   margin-left: 10px;
+//   height: 40px;
+//   border: 1px solid lightgrey;
+//   border-radius: 50%;
+//   background-size: contain;
+//   align-self: center;
+// }
