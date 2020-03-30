@@ -1,4 +1,5 @@
 class AttendeesController < ApplicationController
+  before_action :find_attendee, only: [:edit, :update]
 
   def new
     @attendee = Attendee.new
@@ -22,16 +23,25 @@ class AttendeesController < ApplicationController
     # @Attendee.meeting = @meeting
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    @attendee.update(validate_attendee)
+    authorize @attendee
+    redirect_to dashboard_path
+
+    # flash[:notice] = "Request updated"
   end
 
   private
 
+  def find_attendee
+    @attendee = Attendee.find(params[:id])
+    # authorize @attendee
+  end
+
   def validate_attendee
-    params.require(:attendee).permit(:message)
+    params.require(:attendee).permit(:message, :confirmed, :declined)
   end
 
 

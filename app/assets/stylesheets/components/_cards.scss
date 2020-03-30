@@ -36,7 +36,7 @@
 
   .user-card-actions {
     padding: 10px;
-    background: rgb(219, 110, 97);
+    background: $workorng;
 
     a {
       color: white;
@@ -44,9 +44,6 @@
   }
 }
 
-.box-shadow {
-
-}
 
 .workspace-card {
   width: 250px;
@@ -66,14 +63,8 @@
 
   }
 
-  .workspace-avatars {
-    height: 150px;
-    padding: 10px;
-
-  }
-
   .workspace-card-info {
-    background: rgb(219, 110, 97);
+    background: $workorng;
     color: white;
     padding: 10px;
 
@@ -85,3 +76,70 @@
     }
   }
 }
+
+.request-card {
+  border-left: 3px solid $workorng;
+  width: 100%;
+  // border: 1px solid black;
+  box-shadow: 1px 1px 3px lightgrey;
+
+  .request-body {
+    display: flex;
+    height: 100%;
+  }
+
+  img {
+    // padding: 10px;
+    border-radius: 50%;
+    border: 3px solid white;
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+  }
+
+  .request-info {
+    padding: 10px;
+    flex-grow: 1;
+
+    p {
+      margin: 0px;
+    }
+  }
+
+  .request-card-actions {
+    padding: 10px;
+    background: $workorng;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    a {
+      color: white;
+
+      &:hover {
+        transition: 0.1s;
+        transform: scale(1.2)
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// .pending-card {
+//   width: 250px;
+//   height: 150px;
+//   box-shadow: 1px 1px 3px lightgrey;
+//   background-image:   linear-gradient(to bottom, rgba(10,0,0,0.2), rgba(0,10,0,0.2)),
+// url('examplelocation.png');
+//   object-fit: cover;
+// }
+
+// .list-card {
+//   width: 100%
+
+// }

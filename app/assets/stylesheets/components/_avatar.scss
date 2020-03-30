@@ -28,6 +28,8 @@
 
 
 .workspace-avatars {
+    min-height: 7em;
+    padding: 10px;
 
   h6 {
     padding: 10px;
@@ -50,7 +52,8 @@
       img {
         border-radius: 50%;
         border: 3px solid white;
-        height: 60px;
+        height: 3.5rem;
+        object-fit: contain;
       }
     }
   }

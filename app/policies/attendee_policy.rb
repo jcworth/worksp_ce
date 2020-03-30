@@ -9,7 +9,7 @@ class AttendeePolicy < ApplicationPolicy
     true
   end
 
-  def update
+  def update?
     true
   end
 end

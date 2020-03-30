@@ -22,14 +22,6 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+import { initTabs } from "../components/openTab"
 
-// const inputArea = document.getElementById('meeting-address');
-// const list = document.getElementById('results');
-// list.addEventListener('click', (event) => {
-//   if (event.target && event.target.nodeName == 'LI') {
-//     inputArea.value = event.target.innerText;
-//     list.classList.toggle('on')
-//   }
-// });
-
-
+initTabs()
