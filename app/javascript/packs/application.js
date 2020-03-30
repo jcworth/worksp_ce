@@ -22,31 +22,6 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
-import { openTab } from "../components/openTab"
+import { initTabs } from "../components/openTab"
 
-
-
-// DASHBOARD PAGE //
-// Hide all dashboard tab options
-document.querySelectorAll('.tab-content').forEach((element) => {
-  element.style.display = "none"
-});
-
-// Select the tabs, click the first as a default view
-const select = document.querySelector('.tab-select')
-
-document.addEventListener("DOMContentLoaded", () => {
-  select.firstElementChild.click()
-});
-
-// On click show the new tab and hide others
-select.addEventListener('click', (event) => {
-  if (event.target && event.target.nodeName === 'BUTTON') {
-    const request = event.target.dataset.content;
-    document.querySelectorAll('.tab-content').forEach((element) => {
-      element.style.display = "none"
-    });
-    console.log(request);
-    openTab(request);
-  }
-});
+initTabs()
