@@ -24,24 +24,29 @@ require("channels")
 import "bootstrap";
 import { openTab } from "../components/openTab"
 
+
+
+// DASHBOARD PAGE //
+// Hide all dashboard tab options
 document.querySelectorAll('.tab-content').forEach((element) => {
   element.style.display = "none"
 });
-document.querySelector('.tab-select').addEventListener('click', (event) => {
+
+// Select the tabs, click the first as a default view
+const select = document.querySelector('.tab-select')
+
+document.addEventListener("DOMContentLoaded", () => {
+  select.firstElementChild.click()
+});
+
+// On click show the new tab and hide others
+select.addEventListener('click', (event) => {
   if (event.target && event.target.nodeName === 'BUTTON') {
     const request = event.target.dataset.content;
+    document.querySelectorAll('.tab-content').forEach((element) => {
+      element.style.display = "none"
+    });
     console.log(request);
     openTab(request);
   }
 });
-
-// const inputArea = document.getElementById('meeting-address');
-// const list = document.getElementById('results');
-// list.addEventListener('click', (event) => {
-//   if (event.target && event.target.nodeName == 'LI') {
-//     inputArea.value = event.target.innerText;
-//     list.classList.toggle('on')
-//   }
-// });
-
-

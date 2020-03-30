@@ -29,13 +29,12 @@
   // display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
-  // overflow-x: scroll;
-  // overflow-y: hidden;
+
 }
 
 
 
-.tabs {
+.tab-select {
   background-color: #f1f1f1;
 
   .tablinks {
@@ -44,6 +43,11 @@
     padding: 10px;
 
     &:hover {
+      background-color: $workorng;
+      color: white;
+    }
+
+    &:active {
       background-color: $workorng;
       color: white;
     }
