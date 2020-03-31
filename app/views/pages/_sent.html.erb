@@ -1,0 +1,18 @@
+<% if @pending_requests.empty? %>
+  <h5><%= link_to "Search for a Workspace", meetings_path %></h5>
+<% else %>
+  <h5>Your requests to join a workspace</h5>
+  <div class="meeting-list-container">
+    <% @pending_requests.each do |request| %>
+      <div class="request-card">
+        <div class="request-body">
+          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+          <div id="" class="request-info">
+            <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
+            <p><%= request.confirmed %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

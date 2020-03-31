@@ -26,11 +26,18 @@ class AttendeesController < ApplicationController
   def edit; end
 
   def update
-    @attendee.update(validate_attendee)
-    authorize @attendee
-    redirect_to dashboard_path
-
-    # flash[:notice] = "Request updated"
+    @received_requests = Attendee.joins(:meeting).where(meetings: {owner_id: current_user}, attendees: {confirmed: false, declined: false})
+    @pending_requests = current_user.attendees
+    if @attendee.update(validate_attendee)
+      authorize @attendee
+      respond_to do |format|
+        format.js
+      end
+    end
+    # { |format| format.js }
+    # redirect_to dashboard_path
+    # ("data-turbolinks" => "false")
+    flash[:notice] = "Response sent!"
   end
 
   private

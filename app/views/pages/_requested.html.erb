@@ -1,0 +1,22 @@
+<% if @received_requests.empty? %>
+  <h5>No requests yet!</h5>
+<% else %>
+  <h5>Requests to join your workspaces</h5>
+  <div class="meeting-list-container requested-grid">
+    <% @received_requests.each do |request| %>
+      <div id="request" class="request-card">
+        <div class="request-body">
+          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+          <div class="request-info">
+            <p><%= request.meeting.location %></p>
+            <p><%= request.message %></p>
+          </div>
+          <div class="request-card-actions">
+            <p><%= link_to "Accept", meeting_attendee_path(request.meeting, request, attendee: { confirmed: true}), method: 'put', remote: true %></p>
+            <p><%= link_to "Decline", meeting_attendee_path(request.meeting, request, attendee: { declined: true}), method: 'put', remote: true %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
