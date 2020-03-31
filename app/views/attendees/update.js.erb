@@ -1,6 +1,6 @@
 // On accept / decline meeting request remove the request from the list and render updated hosting view
-document.getElementById('request').remove()
+// document.getElementById('request').remove()
 document.querySelector('.hosting-render').innerHTML = '<%= j render '/pages/hosting' %>'
-document.querySelector('.tab-select').innherHTML = '<%= j render '/pages/tabs' %>'
 document.querySelector('.requested-render').innerHTML = '<%= j render '/pages/requested/' %>'
 document.querySelector('.sent-render').innerHTML = '<%= j render '/pages/sent/' %>'
+document.querySelector('.tab-select').innerHTML = '<%= j render '/pages/tabs' %>'
