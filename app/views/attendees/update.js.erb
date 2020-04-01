@@ -1,0 +1,9 @@
+// On accept / decline meeting request remove the request from the list and render updated hosting view
+document.querySelector('.hosting-render').innerHTML = '<%= j render '/pages/hosting' %>'
+document.querySelector('.requested-render').innerHTML = '<%= j render '/pages/requested/' %>'
+// document.querySelector('.sent-render').innerHTML = '<%= j render '/pages/sent/' %>'
+document.querySelector('.tab-select').innerHTML = '<%= j render '/pages/tabs' %>'
+document.querySelector('.flash-wrapper').innerHTML = '<%= j render '/shared/flashes' %>'
+setTimeout(() => {
+  document.querySelector('.flash-wrapper').innerHTML = "";
+}, 3000);

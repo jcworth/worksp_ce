@@ -1,0 +1,27 @@
+<% if current_user.hosted_meetings.length > 0 %>
+  <h5>Your workspaces</h5>
+  <div class="meeting-list-container hosting-grid">
+    <% current_user.hosted_meetings.each do |meeting|  %>
+      <div class="workspace-card">
+        <span id="count"><%= meeting.attendees.where(confirmed: true).count %></span>
+        <!-- <img src="https://source.unsplash.com/featured/?workspace" alt="cover-image" class="workspace-image"> -->
+        <div class="workspace-avatars">
+          <ul>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+            <li><img src="https://www.jackholdsworth.com/profile.png" alt=""></li>
+          </ul>
+        </div>
+        <div class="workspace-card-info">
+          <h6><%= link_to meeting.location, meeting_path(meeting) %></h6>
+          <h6><%= meeting.date %></h6>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h5><%= link_to "Create a new workspace", new_meeting_path  %></h5>
+<% end %>

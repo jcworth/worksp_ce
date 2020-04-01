@@ -7,6 +7,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
+    @current_meeting = current_user.attendees.where(meeting: @meeting)
     data = Geocoder.search("#{@meeting.google_place_id}", lookup: :google, google_place_id: true)
     if !data.empty?
       @marker = [{

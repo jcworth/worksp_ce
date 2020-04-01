@@ -1,10 +1,3 @@
-<%# @meeting.users.each do |user| %>
-  <%#= user.email %>
-<%# end %>
-
- <!--  <div class="show-title">
-    <h1><%= @meeting.title %></h1>
-  </div> -->
 <div class="meeting-container">
   <div class="meeting">
     <div class="meeting-info">
@@ -35,7 +28,11 @@
           <%= link_to "Delete this meeting", meeting_path, method: :delete, class: 'button' %>
         <% else %>
           <div id="new-attendance-render">
-            <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting), remote: true %> <br>
+            <% if @current_meeting.empty? %>
+              <%= link_to "Request to join this worksp_ce", new_meeting_attendee_path(@meeting), remote: true %> <br>
+            <% else %>
+              <h6>Request sent</h6>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -47,8 +44,7 @@
       <div id="map"
         style="width: 100%;
         height: 500px;
-        align-self: flex-start;
-        "
+        align-self: flex-start;"
         data-markers="<%= @marker.to_json %>"
         ></div>
     </div>
