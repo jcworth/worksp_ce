@@ -19,8 +19,6 @@ class AttendeesController < ApplicationController
     else
       render :new
     end
-    # @attendee.confirmed = true
-    # @Attendee.meeting = @meeting
   end
 
   def edit; end
@@ -31,20 +29,16 @@ class AttendeesController < ApplicationController
     if @attendee.update(validate_attendee)
       authorize @attendee
       respond_to do |format|
-        format.js
+        format.js { flash.now[:notice] = 'Response sent!' }
       end
     end
-    # { |format| format.js }
-    # redirect_to dashboard_path
-    # ("data-turbolinks" => "false")
-    flash[:notice] = "Response sent!"
   end
 
   private
 
   def find_attendee
     @attendee = Attendee.find(params[:id])
-    # authorize @attendee
+    authorize @attendee
   end
 
   def validate_attendee
