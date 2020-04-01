@@ -17,6 +17,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @received_requests = Attendee.joins(:meeting).where(meetings: {owner_id: current_user}, attendees: {confirmed: false, declined: false})
-    @pending_requests = current_user.attendees
+    @pending_requests = current_user.attendees.includes(:meeting, :user)
   end
 end
