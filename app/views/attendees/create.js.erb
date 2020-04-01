@@ -1,0 +1,5 @@
+document.getElementById('new-attendance-render').innerHTML = "Sent!";
+document.querySelector('.flash-wrapper').innerHTML = '<%= j render '/shared/flashes' %>'
+setTimeout(() => {
+  document.querySelector('.flash-wrapper').remove();
+}, 3000);

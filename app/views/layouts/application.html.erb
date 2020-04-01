@@ -13,7 +13,9 @@
   <body>
     <%#= javascript_include_tag "application" %>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="flash-wrapper">
+      <%= render 'shared/flashes' %>
+    </div>
     <%= yield %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_BROWSER_API_KEY']}" %>
     <%= javascript_pack_tag "map" %>

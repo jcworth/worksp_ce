@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for [@meeting, @attendee] do |f| %>
+  <%= simple_form_for [@meeting, @attendee], remote:true do |f| %>
     <%= f.input :message, label: 'Message the host', input_html: { maxlength: 60, size: 20} %>
     <%= f.button :submit, 'Request to join', class: "form-submit-btn" %>
   <% end %>

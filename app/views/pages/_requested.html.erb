@@ -3,7 +3,7 @@
 <% else %>
   <h5>Requests to join your workspaces</h5>
   <div class="meeting-list-container requested-grid">
-    <% @received_requests.each do |request| %>
+    <% @received_requests.reverse.each do |request| %>
       <div id="request" class="request-card">
         <div class="request-body">
           <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">

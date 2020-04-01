@@ -4,8 +4,10 @@ class AttendeesController < ApplicationController
   def new
     @attendee = Attendee.new
     @meeting = Meeting.find(params[:meeting_id])
-    respond_to { |format| format.js }
     authorize @attendee
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -15,7 +17,9 @@ class AttendeesController < ApplicationController
     @attendee.meeting = meeting
     authorize @attendee
     if @attendee.save!
-      redirect_to meeting_path(meeting)
+      respond_to do |format|
+        format.js { flash.now[:notice] = 'Request sent!' }
+      end
     else
       render :new
     end
