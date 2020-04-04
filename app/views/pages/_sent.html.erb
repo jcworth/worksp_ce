@@ -4,7 +4,7 @@
 
   <h5>Your sent requests:</h5>
   <div class="meeting-list-container sent-grid">
-    <% @pending_requests.awaiting.each do |request| %>
+    <% @pending_requests.awaiting.reverse.each do |request| %>
       <div class="request-card">
         <div class="request-body">
           <!-- <img src="https://www.jackholdsworth.com/profile.png" alt="" class=""> -->
