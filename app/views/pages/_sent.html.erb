@@ -1,8 +1,9 @@
 <% if @pending_requests.empty? %>
   <h5><%= link_to "Search for a Workspace", meetings_path %></h5>
 <% else %>
-  <div class="meeting-list-container">
-    <h5>Workspaces you're attending:</h5>
+
+  <h5>Workspaces you're attending:</h5>
+  <div class="meeting-list-container sent-grid">
     <% @pending_requests.confirmed.each do |request| %>
       <div class="request-card">
         <div class="request-body">
@@ -15,7 +16,10 @@
         </div>
       </div>
     <% end %>
-    <h5>Waiting for a response:</h5>
+  </div>
+
+  <h5>Waiting for a response:</h5>
+  <div class="meeting-list-container sent-grid">
     <% @pending_requests.awaiting.each do |request| %>
       <div class="request-card">
         <div class="request-body">
@@ -28,15 +32,19 @@
         </div>
       </div>
     <% end %>
-    <h5>Declined requests:</h5>
+  </div>
+
+  <h5>Declined requests:</h5>
+  <div class="meeting-list-container sent-grid">
     <% @pending_requests.declined.each do |request| %>
       <div class="request-card">
         <div class="request-body">
-          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+          <!-- <img src="https://www.jackholdsworth.com/profile.png" alt="" class=""> -->
           <div id="" class="request-info">
             <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
             <p><%= request.meeting.date %></p>
             <p>Hosted by: <%= request.meeting.owner.username  %></p>
+            <%#= link_to meeting_attendee_path(@meeting, @attendee), method: :delete  %>
           </div>
         </div>
       </div>

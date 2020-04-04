@@ -21,21 +21,26 @@
 }
 
 .meeting-list-container {
-  // display: grid;
   width: 90%;
-  // height: 250px;
-  // padding: 10px;
-  // box-shadow: 1px 1px 3px lightgrey;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr;
   height: 80%;
-
 }
 
 .hosting-grid {
 
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.requested-grid {
+  grid-template-columns: 1fr;
+}
+
+.sent-grid {
+  grid-template-columns: 1fr 1fr;
+  // grid-gap: 16px;
+
 }
 
 .tab-content {

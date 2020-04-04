@@ -1,5 +1,5 @@
 class AttendeesController < ApplicationController
-  before_action :find_attendee, only: [:edit, :update]
+  before_action :find_attendee, only: [:edit, :update, :destroy]
 
   def new
     @attendee = Attendee.new
@@ -36,6 +36,11 @@ class AttendeesController < ApplicationController
         format.js { flash.now[:notice] = 'Response sent!' }
       end
     end
+  end
+
+  def destroy
+    authorize @attendee
+    @attendee.destroy
   end
 
   private
