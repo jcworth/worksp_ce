@@ -2,7 +2,7 @@
   // width: 75%;
   margin: 0 auto;
   height: 100%;
-  // padding-top: 40px;
+  padding-top: 10px;
   display: flex;
   // width: 80%;
 
@@ -21,7 +21,7 @@
 }
 
 .meeting-list-container {
-  width: 90%;
+  width: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr;
@@ -38,7 +38,7 @@
 }
 
 .sent-grid {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   // grid-gap: 16px;
 
 }

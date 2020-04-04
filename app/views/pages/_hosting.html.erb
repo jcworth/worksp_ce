@@ -22,6 +22,21 @@
       </div>
     <% end %>
   </div>
+  <h5>Workspaces you're attending:</h5>
+  <div class="meeting-list-container sent-grid">
+    <% @pending_requests.confirmed.each do |request| %>
+      <div class="request-card">
+        <div class="request-body">
+          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+          <div id="" class="request-info">
+            <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
+            <p><%= request.meeting.date %></p>
+            <p>Hosted by: <%= request.meeting.owner.username  %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <h5><%= link_to "Create a new workspace", new_meeting_path  %></h5>
 <% end %>

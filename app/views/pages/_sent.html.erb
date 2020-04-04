@@ -2,41 +2,9 @@
   <h5><%= link_to "Search for a Workspace", meetings_path %></h5>
 <% else %>
 
-  <h5>Workspaces you're attending:</h5>
-  <div class="meeting-list-container sent-grid">
-    <% @pending_requests.confirmed.each do |request| %>
-      <div class="request-card">
-        <div class="request-body">
-          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
-          <div id="" class="request-info">
-            <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
-            <p><%= request.meeting.date %></p>
-            <p>Hosted by: <%= request.meeting.owner.username  %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <h5>Waiting for a response:</h5>
+  <h5>Your sent requests:</h5>
   <div class="meeting-list-container sent-grid">
     <% @pending_requests.awaiting.each do |request| %>
-      <div class="request-card">
-        <div class="request-body">
-          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
-          <div id="" class="request-info">
-            <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
-            <p><%= request.meeting.date %></p>
-            <p>Hosted by: <%= request.meeting.owner.username  %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <h5>Declined requests:</h5>
-  <div class="meeting-list-container sent-grid">
-    <% @pending_requests.declined.each do |request| %>
       <div class="request-card">
         <div class="request-body">
           <!-- <img src="https://www.jackholdsworth.com/profile.png" alt="" class=""> -->
@@ -44,7 +12,11 @@
             <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
             <p><%= request.meeting.date %></p>
             <p>Hosted by: <%= request.meeting.owner.username  %></p>
-            <%#= link_to meeting_attendee_path(@meeting, @attendee), method: :delete  %>
+            <% if request.declined == false %>
+              <p>Status: Pending</p>
+            <% else %>
+              <p>Status: Declined</p>
+            <% end %>
           </div>
         </div>
       </div>
