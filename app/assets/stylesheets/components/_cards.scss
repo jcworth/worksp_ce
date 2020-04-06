@@ -93,8 +93,8 @@
 
   .request-info {
     padding: 8px;
-    display: flex;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     p {
       margin: 0px;
