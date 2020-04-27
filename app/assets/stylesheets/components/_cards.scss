@@ -93,8 +93,15 @@
 
   .request-info {
     padding: 8px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    margin: 0 auto;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+    .item {
+      flex: 1;
+      text-align: center;
+    }
 
     p {
       margin: 0px;
@@ -103,6 +110,7 @@
 
     }
   }
+
 
   .request-card-actions {
     padding: 10px;
