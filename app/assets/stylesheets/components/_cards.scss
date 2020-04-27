@@ -28,12 +28,6 @@
     padding: 20px;
   }
 
-  .divider-line {
-    // width: 100%;
-    // background: lightgrey;
-    // height: 1px;
-  }
-
   .user-card-actions {
     padding: 10px;
     background: $workorng;
@@ -81,7 +75,7 @@
   border-left: 3px solid $workorng;
   width: 100%;
   // border: 1px solid black;
-  box-shadow: 1px 1px 3px lightgrey;
+  box-shadow: 1px 1px 4px lightgrey;
 
   .request-body {
     display: flex;
@@ -98,13 +92,25 @@
   }
 
   .request-info {
-    padding: 10px;
-    flex-grow: 1;
+    padding: 8px;
+    display: flex;
+    margin: 0 auto;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+    .item {
+      flex: 1;
+      text-align: center;
+    }
 
     p {
       margin: 0px;
+      padding: 0rem 2rem;
+      align-self: center;
+
     }
   }
+
 
   .request-card-actions {
     padding: 10px;
@@ -130,16 +136,3 @@
   }
 }
 
-// .pending-card {
-//   width: 250px;
-//   height: 150px;
-//   box-shadow: 1px 1px 3px lightgrey;
-//   background-image:   linear-gradient(to bottom, rgba(10,0,0,0.2), rgba(0,10,0,0.2)),
-// url('examplelocation.png');
-//   object-fit: cover;
-// }
-
-// .list-card {
-//   width: 100%
-
-// }

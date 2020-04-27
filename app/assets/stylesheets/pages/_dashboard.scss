@@ -2,14 +2,14 @@
   // width: 75%;
   margin: 0 auto;
   height: 100%;
-  padding-top: 40px;
+  padding-top: 10px;
   display: flex;
-  width: 80%;
+  // width: 80%;
 
 }
 
 .self-container {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,21 +21,26 @@
 }
 
 .meeting-list-container {
-  // display: grid;
-  width: 90%;
-  // height: 250px;
-  // padding: 10px;
-  // box-shadow: 1px 1px 3px lightgrey;
+  width: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr;
   height: 80%;
-
 }
 
 .hosting-grid {
 
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+.requested-grid {
+  grid-template-columns: 1fr;
+}
+
+.sent-grid {
+  grid-template-columns: 1fr;
+  // grid-gap: 16px;
+
 }
 
 .tab-content {

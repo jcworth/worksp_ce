@@ -1,15 +1,22 @@
 <% if @pending_requests.empty? %>
   <h5><%= link_to "Search for a Workspace", meetings_path %></h5>
 <% else %>
-  <h5>Your requests to join a workspace</h5>
-  <div class="meeting-list-container">
-    <% @pending_requests.each do |request| %>
+
+  <h5>Your sent requests:</h5>
+  <div class="meeting-list-container sent-grid">
+    <% @pending_requests.awaiting.reverse.each do |request| %>
       <div class="request-card">
         <div class="request-body">
-          <img src="https://www.jackholdsworth.com/profile.png" alt="" class="">
+          <!-- <img src="https://www.jackholdsworth.com/profile.png" alt="" class=""> -->
           <div id="" class="request-info">
-            <p><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
-            <p><%= request.confirmed %></p>
+            <p class="item" ><%= link_to request.meeting.title, meeting_path(request.meeting) %></p>
+            <p class="item"><%= request.meeting.date %></p>
+            <p class= "item">Hosted by: <%= request.meeting.owner.username  %></p>
+            <% if request.declined == false %>
+              <p class="item">Status: Pending</p>
+            <% else %>
+              <p class="item">Status: Declined</p>
+            <% end %>
           </div>
         </div>
       </div>
