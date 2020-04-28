@@ -51,7 +51,7 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 5px 5px 5px 5px;
+          padding: 20px 5px 5px 5px;
 
 
           h6 {
@@ -67,7 +67,9 @@
       .meeting-actions {
         padding: 10px;
         background: rgb(219, 110, 97);
-        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
 
         a {
