@@ -1,0 +1,34 @@
+
+#headline {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.index-container {
+  display: flex;
+  // justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.meeting-index-grid {
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  // width: 100%;
+  margin: 0 auto;
+  // height: 100vh;
+}
+
+
+.meeting-grid-card {
+  // height: 100%;
+  border: 1px solid black;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+  }
+}
+

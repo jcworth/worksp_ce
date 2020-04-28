@@ -1,10 +1,25 @@
-<h1>All meetings</h1>
-
-<div class="meeting-grid">
-  <% @meetings.each do |meeting| %>
-    <li><%= link_to "Location: #{meeting.location}", meeting_path(meeting)%>
-    <p>Date: <%= meeting.date %></p></li>
-  <% end %>
+<div id="headline">
+  <h1>All meetings</h1>
+  <input type="text">
+  <button class="button-wrk">Search</button>
+</div>
+<div class="index-container">
+  <div class="meeting-index-grid">
+    <% @meetings.each do |meeting| %>
+        <div class="meeting-grid-card">
+          <img src="https://e3.365dm.com/18/05/768x432/skynews-world-map-map_4298829.jpg?20180502134213" alt="">
+          <p><%= meeting.title %></p>
+          <p><%= meeting.location %></p>
+          <p><%= meeting.date %></p>
+        </div>
+    <% end %>
+  </div>
+  <div
+    id="map"
+    style="width: 40%;
+    height: 560px;"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
 </div>
 
 <%= link_to "Create a new Worksp_ce", new_meeting_path %>
