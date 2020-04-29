@@ -1,6 +1,7 @@
 import GMaps from 'gmaps/gmaps.js';
 // import autocomplete from '../components/automcomplete';
 
+// Home Map
 const mapElement = document.getElementById('map');
 if (mapElement) {
   const map = new GMaps({ div: '#map', lat: 0, lng: 0, mapTypeControl: false
@@ -16,6 +17,10 @@ if (mapElement) {
     map.fitLatLngBounds(markers);
   };
 };
+
+
+
+
 
 import { autocomplete } from '../components/autocomplete';
 
